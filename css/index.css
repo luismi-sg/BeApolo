@@ -223,12 +223,11 @@ html {
 .header{
     z-index: 1;
     width: 100%;
-    min-height: 100px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding: 2rem 4rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -251,7 +250,8 @@ html {
     gap: 1rem;
 }
 .abrir__lang,
-.abrir__menu{
+.abrir__menu,
+.arrow__lang{
     width: 24px;
     height: 24px;
     color: var(--bgColorWhite);
@@ -282,6 +282,78 @@ html {
     font-size: 16px;
     line-height: 16px;
     cursor: none;
+}
+.header__logo{
+    width: 160px;
+}
+.lang__desktop{
+    position: relative;
+}
+.lang__wrapper{
+    display: none;
+    position: absolute;
+    top: 24px;
+    left: -16px;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+.lang__wrapper.langActive{
+    display: block;
+}
+.lang__mobile{
+    position: relative;
+}
+.langmob__wrapper{
+    display: none;
+    position: absolute;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    top: 24px;
+    left: -21px;
+    gap: 1rem;
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+.lang__ul{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.lang__a{
+    width: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+}
+.lang__span{
+    display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
+    min-width: 25px;
+}
+.lang__span:hover,
+.lang__span.iconActive{
+    color: var(--secondaryColor);
+}
+.lang__span{
+    color: var(--bgColorWhite);
+}
+.lang__icon{
+    display: none;
+    width: 16px;
+    height: 16px;
+}
+.lang__icon.iconActive{
+    display: block;
+}
+.langmob__wrapper.mobileactive{
+    display: flex;
 }
 .hero{
     width: 100%;
@@ -1281,7 +1353,7 @@ textarea.contact__input {
         flex-flow: column nowrap;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem;
+        padding: 2rem 4rem;
         background-color: var(--bgColorWhite);
         gap: 2rem;
     }
@@ -1361,6 +1433,14 @@ textarea.contact__input {
     }
     .cookies__p{
         width: 100%;
+    }
+    html {
+        scroll-behavior: smooth;
+        cursor: auto;
+    }
+    .cursor{
+        display: none;
+        pointer-events: auto;  
     }
     .lap__p,
     .connect__p{
@@ -1534,6 +1614,12 @@ textarea.contact__input {
     }
 }
 @media screen and (max-width:480px){
+    .header{
+        padding: 2rem;
+    }
+    .modal__mobile{
+        padding: 2rem;
+    }
     .cookies{
         min-height: 100svh;
         padding: 2rem;

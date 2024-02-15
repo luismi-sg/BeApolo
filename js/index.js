@@ -43,6 +43,30 @@ const executeCodes = () => {
 //executeCodes function will be called on webpage load
 window.addEventListener("load", executeCodes);
 
+const langDesktop = document.querySelector(".lang__desktop")
+const langModal = document.querySelector(".lang__wrapper")
+const langa = document.querySelectorAll(".lang__a")
+const langSpan = document.querySelectorAll(".lang__span")
+const langIcon = document.querySelectorAll(".lang__icon")
+
+const langMobile  = document.querySelector(".abrir__lang")
+const langMobileModal = document.querySelector(".langmob__wrapper")
+
+langMobile.addEventListener("click" , () => {
+  langMobileModal.classList.toggle("mobileactive")
+})
+
+langDesktop.addEventListener("click" , () => {
+  langModal.classList.toggle("langActive")
+})
+
+langa.forEach( function ( item , i ){
+  langa[i].addEventListener("click" , function(e) {
+    e.preventDefault
+    langSpan[i].classList.add("iconActive")
+    langIcon[i].classList.add("iconActive")
+  })
+})
 
 
 const modalMenu = document.querySelector(".modal__mobile");
