@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeApolo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js" defer></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body class=" ">
+    <div class="cursor">
+        <div class="cursor__ball"></div>
+    </div>
+    <div class="cookies">
+        <div class="cookies__wrapper">
+            <span class="cookies__title">Usamos cookies</span>
+            <p class="cookies__p">Las utilizamos para analizar los datos de nuestras visitas, mejorar nuestro sitio web, mostrar contenidos personalizados y ofrecer una experiencia web óptima. Para obtener más información sobre las cookies que utilizamos, consulte la configuración. <a href="/politica-de-cookies.html" title="Visitar política de Cookies"> Ver políticas de cookies.</a></p>
+            <div class="cookies__buttons">
+                <button class="cookies__button" id="declineBtn">Rechazar</button>
+                <button class="cookies__button" id="acceptBtn">Ok, aceptarlas todas</button>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <header class="header">
+            <h1 class="header__h1">
+                <a href="./index.html" title="Inicio BeApolo">
+                    <img src="/assets/Logo_BeApolo_White 1.svg" alt="Logo BeApolo">
+                </a>
+            </h1>
+            <nav class="header__nav desktop__nav">
+                    <ul class="header__ul">
+                        <li class="header__li"><a class="hoverable" href="#technology" title="BEAPOLO TECHNOLOGY">BEAPOLO TECHNOLOGY</a></li>
+                        <li class="header__li"><a href="#publicity" title="Métodos">MÉTODO</a></li>
+                        <li class="header__li"><a href="#premium" title="Soluciones Premium">SOLUCIONES</a></li>
+                        <li class="header__li"><a href="#impact" title="Medición Impacto">MEDICIÓN</a></li>
+                        <li class="header__li"><a href="#contact" title="Contacto">CONTACTO</a></li>
+                        <li class="header__li"><a href="#map" title="Donde Estamos">DÓNDE ESTAMOS</a></li>
+                        <li class="header__li">ES</li>
+                    </ul>
+            </nav>
+            <nav class="header__nav mobile__nav">
+                <div class="iconos__mobile">
+                    <img class="abrir__lang" src="/assets/language_menu.svg" alt="Icono Idioma">
+                    <img class="abrir__menu" src="/assets/hamburger_menu.svg" alt="Icono menu">
+                </div>
+                <div class="modal__mobile">
+                    <div class="logos__mobile">
+                        <a href="./index.html" title="Inicio BeApolo">
+                            <img src="/assets/Logo_BeApolo_Black.svg" alt="Logo BeApolo">
+                        </a>
+                        <img class="cerrar__menu" src="/assets/menu_close.png" alt="Icono Idioma">
+                    </div>
+                    <ul class="header__ul">
+                        <li class="header__li"><a class="hoverable" href="#technology" title="BEAPOLO TECHNOLOGY">BEAPOLO TECHNOLOGY</a></li>
+                        <li class="header__li"><a href="#publicity" title="Métodos">MÉTODO</a></li>
+                        <li class="header__li"><a href="#premium" title="Soluciones Premium">SOLUCIONES</a></li>
+                        <li class="header__li"><a href="#impact" title="Medición Impacto">MEDICIÓN</a></li>
+                        <li class="header__li"><a href="#contact" title="Contacto">CONTACTO</a></li>
+                        <li class="header__li"><a href="#map" title="Donde Estamos">DÓNDE ESTAMOS</a></li>
+                        <li class="header__li">ES</li>
+                    </ul>
+                    <div class="texto__mobile">
+                        <span class="email__mobile">info@hod.media</span>
+                        <span class="copy__mobile">Copyright © 2024 BeApolo. Todos los derechos reservados.</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="hero">
+            <video class="hero__video" loop muted poster="/assets/Video_Captura_Desktop.webp" autoplay playsinline preload="none">
+                <source src="/assets/Video_Desktop.mp4" loop type="video/mp4" media="(min-width: 800px)">
+                <source src="/assets/Video_Movil_BN.mp4" loop type="video/mp4" >
+                
+            </video>
+            <div class="hero__title">
+                <span class="title__noanimation">Somos</span>
+                <div class="title__wrapper">
+                    <div class="title__animation">
+                        <span class="title__span title__italic">innovación AdTech</span>
+                        <span class="title__span title__italic">precisión</span>
+                        <span class="title__span title__italic">data</span>
+                        <span class="title__span title__italic">tech</span>
+                        <span class="title__span title__italic">creatividad</span>
+                        <span class="title__span title__italic">personalización</span>
+                        <span class="title__span title__italic">penetración</span>
+                        <span class="title__span title__italic">alcance</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <div class="content">
+            <section class="lap">
+                <div class="lap__animation">
+                    <div class="animation__wrapper">
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                        <span class="animation__translate">¡Adelántate al resto!</span>
+                    </div>
+                </div>
+                <div class="lap__frase">
+                    <p class="lap__p">La nave Apolo 11 llevó la primera expedición tripulada a la Luna.</p>                
+                    <p class="lap__p">La tecnología BeApolo te acompañará a ser el líder en resultados publicitarios de tu sector.</p>                
+                </div>
+                <div class="lap__connect">
+                    <p class="connect__p">WE CONNECT BRANDS WITH USERS IN THE NEW CHANNELS: <span class="connect__bold">MEDIA PREMIUM, STREAMING TV, GAMING & DIGITAL AUDIO</span></p>
+                </div>
+            </section>
+            <section id="technology" class="technology">
+                <h2 class="h2">BeApolo Technology</h2>
+                <div class="technology__slider">
+                    <article class="technology__item">
+                        <div class="technology__card bg__one">
+                            <h3 class="h3">RICH MEDIA</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">Los usuarios están sobre impactados, así que ya no vale hacerlo de cualquier forma.</p>
+                            <p class="technology__p">Ofrece una experiencia de usuario altamente interactiva, gracias a la implementación de funciones avanzadas como vídeo, sonido u otros elementos que atraen a los espectadores y consiguen que estos interactúen con el contenido.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__two">
+                            <h3 class="h3">DYNAMIC DISPLAY</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">Si tu marca quiere conectar con el espectador, que lo haga de una forma única.</p>
+                            <p class="technology__p">Para ello y con la ayuda de la IA, creamos una conversación de la marca adaptada a cada usuario, generamos anuncios dinámicos que se adaptan, tanto en mensaje como en creatividad, al interés del usuario en tiempo real; teniendo en cuenta aspectos como la meteorología, el momento del día, o la propia ubicación del usuario.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__three">
+                            <h3 class="h3">STREAMING</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">El gran público se va de los canales tradicionales, y en BeApolo sabemos dónde van.</p>
+                            <p class="technology__p">Con tecnología innovadora tenemos la capacidad de hacer publicidad de precisión en Streaming Ads, Connected TV Ads y HBBTV, permitiendo impactar al espectador durante su experiencia de entretenimiento. Medible, premium y con capacidad de segmentación.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__four">
+                            <h3 class="h3">GAMING</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">Si hablamos de futuro, hablamos de gaming. </p>
+                            <p class="technology__p">En BeApolo estamos preparados para incorporar tu marca dentro de contextos de videojuegos y en tiempo real. Ofrecemos la oportunidad de impactar al jugador mientras está consumiendo entretenimiento, generando experiencias inmersivas e interactivas y de forma no intrusiva.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__five">
+                            <h3 class="h3">PERFORMANCE</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">El digital son resultados y los resultados crecimiento.</p>
+                            <p class="technology__p">Somos especialistas en cumplir objetivos de negocio y potenciar el crecimiento de puntos de venta físicos y digitales. Optimizamos la tecnología centrándonos en resultados medibles, generando oportunidades de conversión y retorno eficaz en la inversión.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__six">
+                            <h3 class="h3">NATIVE</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">Desarrollamos publicidad que no parece publicidad.</p>
+                            <p class="technology__p">Ser expertos en soluciones nativas nos permite multiplicar la consideración de los usuarios con nuestros anunciantes, consiguiendo excelentes resultados de lectura de contenidos, visualización de promociones, trafico a tienda o generación de leads.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__seven">
+                            <h3 class="h3">AUDIO</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">Con el crecimiento del audio cada día es más importante trabajar el On The Go.</p>
+                            <p class="technology__p">Música, Podcast y Radio Digital se han convertido en uno de los canales preferidos por los consumidores a la hora de pasar su tiempo de ocio. Con medición y personalización, adaptamos el mensaje para multiplicar los resultados.</p>
+                        </div>
+                    </article>
+                    <article class="technology__item">
+                        <div class="technology__card bg__eight">
+                            <h3 class="h3">VIDEO</h3>
+                        </div>
+                        <div class="technology__hover">
+                            <p class="technology__p">Utilizamos el vídeo para elevar el reconocimiento de marca.</p>
+                            <p class="technology__p">Con segmentación precisa y acceso a todos los medios, desarrollamos planes de difusión 360º, eligiendo siempre los espacios óptimos para maximizar el alcance y la notoriedad de la marca con sus diferentes targets.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>  
+            <section id="publicity" class="publicity">
+                <h2 class="h2">PUBLICIDAD DE PRECISIÓN</h2>
+                <div class="publicity__text">
+                    <p class="publicity__p">En BeApolo sabemos dónde encontrar a los buyer person de una marca, cómo dirigirnos a ellos según el contexto en el que se mueven y el código visual a seguir en cada placement. Tenemos acceso a todos los puntos de contacto de las marcas con los usuarios y la capacidad de generar diálogos únicos con el usuario en cada uno de ellos.</p>
+                </div>
+                <div class="buttons__wrapper">
+                    <button class="publicity__button tabIsActive">DATA</button>
+                    <button class="publicity__button">SITES</button>
+                    <button class="publicity__button">CONTEXT</button>
+                </div>
+                <div class="tabs__wrapper">
+                    <div class="publicity__tabs data__tab tabIsActive">
+                        <div class="amount__wrapper">
+                            <div class="amount__animation">
+                                <span class="amount__span align__right">20 m de</span>
+                                <span class="amount__span align__right">21 m de</span>
+                                <span class="amount__span align__right">26 m de</span>
+                                <span class="amount__span align__right">15.5 m de</span>
+                                <span class="amount__span align__right">11 m de</span>
+                                <span class="amount__span align__right">20 m de</span>
+                                <span class="amount__span align__right">11 m de</span>
+                                <span class="amount__span align__right">9 m de</span>
+                                <span class="amount__span align__right">20 m de</span>
+                            </div>
+                        </div>
+                        <span class="data__span">amantes</span>
+                        <div class="amount__wrapper">
+                            <div class="amount__animation">
+                                <span class="amount__span">del deporte</span>
+                                <span class="amount__span">de la cultura</span>
+                                <span class="amount__span">de la música</span>
+                                <span class="amount__span">de la moda</span>
+                                <span class="amount__span">de videojuegos</span>
+                                <span class="amount__span">de gastronomía</span>
+                                <span class="amount__span">del cine</span>
+                                <span class="amount__span">de la naturaleza</span>
+                                <span class="amount__span">de los viajes</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="publicity__tabs sites__tab ">
+                        <img class="sites__img" src="/assets/sites_netflixlogo.png" alt="Logo Netflix">
+                        <img class="sites__img" src="/assets/sites_movistarlogo.png" alt="Logo Movistar +">
+                        <img class="sites__img" src="/assets/sites_twitchlogo.png" alt="Logo Twitch">
+                        <img class="sites__img" src="/assets/sites_rakutentvlogo.png" alt="Logo Rakuten TV">
+                        <img class="sites__img" src="/assets/sites_atresmedialogo.png" alt="Logo A Tres Media">
+                        <img class="sites__img" src="/assets/sites_mediasetespanalogo.png" alt="Logo Media Set España">
+                        <img class="sites__img" src="/assets/sites_spotifylogo.png" alt="Logo Spotify">
+                        <img class="sites__img" src="/assets/sites_los40logo.png" alt="Logo Los 40">
+                        <img class="sites__img" src="/assets/sites_amazonmusiclogo.png" alt="Logo Amazon Music">
+                        <img class="sites__img" src="/assets/sites_podiumpodcastlogo.png" alt="Logo Podium Podcast">
+                        <img class="sites__img" src="/assets/sites_elmundologo.png" alt="Logo El Mundo">
+                        <img class="sites__img" src="/assets/sites_elpaislogo.png" alt="Logo El Pais">
+                        <img class="sites__img" src="/assets/sites_abclogo.png" alt="Logo ABC">
+                        <img class="sites__img" src="/assets/sites_marcalogo.png" alt="Logo Marca">
+                        <img class="sites__img" src="/assets/sites_lavanguardialogo.png" alt="Logo La Vanguardia">
+                        <img class="sites__img" src="/assets/sites_thesunlogo.png" alt="Logo The Sun">
+                        <img class="sites__img" src="/assets/sites_wsjlogo.png" alt="Logo WSJ">
+                        <img class="sites__img" src="/assets/sites_msnlogo.png" alt="Logo Msn">
+                        <img class="sites__img" src="/assets/sites_forbeslogo.png" alt="Logo Forbes">
+                        <img class="sites__img" src="/assets/sites_bbclogo.png" alt="Logo BBC News">
+                        <img class="sites__img" src="/assets/sites_financialtimeslogo.png" alt="Logo Finantial Times">
+                    </div>
+                    <div class="publicity__tabs context__tab ">
+                        <div class="context__pill">
+                            <span class="context__title">23M de usuarios</span>
+                            <p class="context__p">únicos <span class="context__span"> contexto informativo</span></p>
+                        </div>
+                        <div class="context__pill">
+                            <span class="context__title">25M de usuarios </span>
+                            <p class="context__p">únicos <span class="context__span"> contexto ocio</span></p>
+                        </div>
+                        <div class="context__pill">
+                            <span class="context__title">29M de usuarios</span>
+                            <p class="context__p">únicos <span class="context__span"> contexto purchase</span></p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#contact">
+                    <button class="content__button">DESCUBRE TU MERCADO</button>
+                </a>
+            </section>
+            <section id="premium" class="premium">
+                <h2 class="h2">SOLUCIONES PREMIUM</h2>
+                <div class="premium__text">
+                    <span class="premium__span">Cuando se te presenta una necesidad, siempre encontramos tu solución.</span>
+                    <span class="premium__span">Innovación + Creatividad = Resultados de éxito</span>
+                </div>
+                <div class="premium__slider">
+                    <img class="premium__img" src="/assets/premium__traffictostore.png" alt=" Premium Traffic To Store BeApolo">
+                    <img class="premium__img" src="/assets/premium__viewability.png" alt=" Premium viewability BeApolo">
+                    <img class="premium__img" src="/assets/premium__interaction.png" alt=" Premium Interaction BeApolo">
+                    <img class="premium__img" src="/assets/premium__leadgeneration.png" alt=" Premium Lead Generation BeApolo">
+                    <img class="premium__img" src="/assets/premium__promotion.png" alt=" Premium Producto Promotion BeApolo">
+                </div>
+                <a href="#contact">
+                    <button class="content__button">PIDE TU SOLUCIÓN</button>
+                </a>
+            </section>
+            <section class="clients">
+                <h2 class="h2">CONFÍAN EN NOSOTROS</h2>
+                <div class="clients__wrapper">
+                    <div class="clients__carrousel">
+                        <img class="clients__img" src="/assets/brand__asus.png" alt=" Logo Asus">
+                        <img class="clients__img" src="/assets/brand__womansecret.png" alt=" Logo Womans Secret">
+                        <img class="clients__img" src="/assets/brand__pepejeans.png" alt=" Logo Pepe Jeans">
+                        <img class="clients__img" src="/assets/brand__blemil.png" alt=" Logo Blemit">
+                        <img class="clients__img" src="/assets/brand__yamaha.png" alt=" Logo Yamaha">
+                        <img class="clients__img" src="/assets/brand__blevit.png" alt=" Logo Blevit">   
+                    </div>
+                    <div class="clients__carrousel hideDesktop">
+                        <img class="clients__img" src="/assets/brand__asus.png" alt=" Logo Asus">
+                        <img class="clients__img" src="/assets/brand__womansecret.png" alt=" Logo Womans Secret">
+                        <img class="clients__img" src="/assets/brand__pepejeans.png" alt=" Logo Pepe Jeans">
+                        <img class="clients__img" src="/assets/brand__blemil.png" alt=" Logo Blemit">
+                        <img class="clients__img" src="/assets/brand__yamaha.png" alt=" Logo Yamaha">
+                        <img class="clients__img" src="/assets/brand__blevit.png" alt=" Logo Blevit">   
+                    </div>
+                </div>
+            </section>
+            <section id="impact" class="impact">
+                <h2 class="h2">IMPACTOS ÚNICOS</h2>
+                <div class="impact__text">
+                    <p class="impact__p">Creamos modelos de IA que combinan mensajes y creatividades para que una misma campaña impacte de una forma única y diferente a cada usuario.</p>
+                    <p class="impact__p">Nos adaptamos al consumidor y al mood en el que se encuentra, personalizando de forma automática la publicidad en función del interés, el site, el contexto digital, la meteorología, la fase del journey y los hábitos de compra del usuario en cada momento del día.</p>
+                </div>
+                <div class="impact__accordion">
+                    <div class="accordion__item">
+                        <div class="item__title">
+                            <p class="accordion__title">IMPACT X <span class="accordion__span">MOOD</span></p>
+                            <div class="accordion__icons">
+                                <img class="accordion__svg abrir__accordion accordionActive" src="/assets/plus_icon.svg" alt="Icono de suma">
+                                <img class="accordion__svg cerrar__accordion" src="/assets/minus_icon.svg" alt="Icono de menos">
+                            </div>
+                        </div>
+                        <div class="item__text ">
+                            <p class="accordion__p">Impacto adaptado según el lenguaje cultural, entorno, rutina o estado meteorológico de la posición física en la que se encuentra el usuario en tiempo real.</p>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="item__title">
+                            <p class="accordion__title">IMPACT X <span class="accordion__span">TARGET</span></p>
+                            <div class="accordion__icons">
+                                <img class="accordion__svg abrir__accordion accordionActive" src="/assets/plus_icon.svg" alt="Icono de suma">
+                                <img class="accordion__svg cerrar__accordion" src="/assets/minus_icon.svg" alt="Icono de menos">
+                            </div>
+                        </div>
+                        <div class="item__text">
+                            <p class="accordion__p">Impacto diferenciado mediante el uso de data, ofreciendo un valor de la marca personalizado al interés del usuario que lo va a percibir.</p>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="item__title">
+                            <p class="accordion__title">IMPACT X <span class="accordion__span">CONTEXT</span></p>
+                            <div class="accordion__icons">
+                                <img class="accordion__svg abrir__accordion accordionActive" src="/assets/plus_icon.svg" alt="Icono de suma">
+                                <img class="accordion__svg cerrar__accordion" src="/assets/minus_icon.svg" alt="Icono de menos">
+                            </div>
+                        </div>
+                        <div class="item__text">
+                            <p class="accordion__p">Impacto adecuado según el contexto en el que se encuentra el consumidor, adaptando el mensaje y el formato al tipo de contenido que está consumiendo.</p>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="item__title">
+                            <p class="accordion__title">IMPACT X <span class="accordion__span">JOURNEY</span></p>
+                            <div class="accordion__icons">
+                                <img class="accordion__svg abrir__accordion accordionActive" src="/assets/plus_icon.svg" alt="Icono de suma">
+                                <img class="accordion__svg cerrar__accordion" src="/assets/minus_icon.svg" alt="Icono de menos">
+                            </div>
+                        </div>
+                        <div class="item__text">
+                            <p class="accordion__p">Impacto ajustado al objetivo del funnel, variando en formato, mensaje y tecnología para optimizar los resultados de branding, consideration o performance omnichannel de la marca.</p>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="item__title">
+                            <p class="accordion__title">IMPACT X <span class="accordion__span">AUTOMATION</span></p>
+                            <div class="accordion__icons">
+                                <img class="accordion__svg abrir__accordion accordionActive" src="/assets/plus_icon.svg" alt="Icono de suma">
+                                <img class="accordion__svg cerrar__accordion" src="/assets/minus_icon.svg" alt="Icono de menos">
+                            </div>
+                        </div>
+                        <div class="item__text">
+                            <p class="accordion__p">Impacto automático según escenarios construidos con información de DMP, CDP, CRM o cookies, empujando al usuario a transitar los diferentes pasos que le lleven a cumplir el objetivo final de la campaña.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="audience">
+                <h2 class="h2">AUDIENCIA INCREMENTAL</h2>
+                <div class="audience__text">
+                    <p class="audience__p">El mundo está experimentando cambios rápidos en la forma en que los usuarios consumen contenido. El offline pierde audiencia, mientras que el online no deja de incrementar. En BeApolo tenemos identificado dónde están consumiendo los usuarios hoy, y dónde seguirán migrando los próximos años, siendo nuestra misión ser los primeros en llegar para construir el puente perfecto entre usuarios y marcas en los canales emergentes.</p>
+                </div>
+                <div class="audience__cards">
+                    <article class="cards__article">
+                        <span class="cards__note">NOTICIAS</span>
+                        <img src="/assets/noticia__1.webp" alt="Noticia Netflix" class="cards__img">
+                        <p class="cards__title">"La TV de pago y las OTTs cambian las reglas del juego audiovisual"</p>
+                        <span class="cards__author">POR BEAPOLO</span>
+                        <span class="cards__date">16 de enero de 2024</span>
+                    </article>
+                    <article class="cards__article">
+                        <span class="cards__note">NOTICIAS</span>
+                        <img src="/assets/noticia__2.webp" alt="Noticia Netflix" class="cards__img">
+                        <p class="cards__title">"El futuro de la radio: Spotify y los Podcasts en el centro de la escucha"</p>
+                        <span class="cards__author">POR BEAPOLO</span>
+                        <span class="cards__date">16 de enero de 2024</span>
+                    </article>
+                    <article class="cards__article">
+                        <span class="cards__note">NOTICIAS</span>
+                        <img src="/assets/noticia__3.webp" alt="Noticia Netflix" class="cards__img">
+                        <p class="cards__title">"Del papel a la pantalla: Diarios digitales cambian nuestra forma de informarnos"</p>
+                        <span class="cards__author">POR BEAPOLO</span>
+                        <span class="cards__date">16 de enero de 2024</span>
+                    </article>
+                    <article class="cards__article">
+                        <span class="cards__note">NOTICIAS</span>
+                        <img src="/assets/noticia__4.webp" alt="Noticia Netflix" class="cards__img">
+                        <p class="cards__title">“Google: La nueva enciclopedia del S.XXI”</p>
+                        <span class="cards__author">POR BEAPOLO</span>
+                        <span class="cards__date">16 de enero de 2024</span>
+                    </article>
+                </div>
+                <div class="audience__pointers">
+                    <div class="pointer__audience actual"></div>
+                    <div class="pointer__audience"></div>
+                    <div class="pointer__audience"></div>
+                    <div class="pointer__audience"></div>
+                </div>
+            </section>
+            <section class="attention">
+                <h2 class="h2">ATTENTION TECHNOLOGY</h2>
+                <div class="attention__text">
+                    <p class="attention__p">En BeApolo, hemos desarrollado una tecnología única de medición de atención que va más allá de la visibilidad.</p>
+                    <p class="attention__p">Utilizando tecnologías avanzadas como el seguimiento ocular y métricas de atención precisas, proporcionamos insights sobre cómo los usuarios interactúan con los anuncios digitales, ayudando a los anunciantes a tomar decisiones basadas en datos para mejorar la eficacia publicitaria y la conexión con los consumidores para lograr un mayor impacto y retorno de inversión.</p>
+                </div>
+            </section>
+            <section class="safety">
+                <h2 class="h2">SEGURIDAD & BRAND SAFETY</h2>
+                <div class="safety__text">
+                    <p class="safety__p">Contamos con una tecnología que garantiza la seguridad y la calidad de cada anuncio que gestionamos, utilizando un filtro inteligente que evita la publicación de tus anuncios en entornos no controlados, detectando lugares no medibles o de baja calidad.</p>
+                    <p class="safety__p">Te aseguramos alcanzar un 70% de viewability y garantizamos que tus anuncios no aparezcan en webs que se alejen de tus intereses. Tu confianza es fundamental para nosotros, por ello, te ofrecemos la máxima seguridad y calidad publicitaria.</p>
+                </div>
+                
+                <div class="safety__icons">
+                    <img src="/assets/safety_moat.png" alt="" class="icons__img">
+                    <img src="/assets/safety_doubleverify.png" alt="" class="icons__img">
+                    <img src="/assets/safety__IAS.png" alt="" class="icons__img">
+                </div>
+            </section>
+            <section id="contact" class="contact">
+                <h2 class="h2">CONTACTO</h2>
+                <div class="contact__text">
+                    <p class="contact__p">Tu viaje hacia el éxito comienza aquí, con nosotros.</p>
+                    <p class="contact__p"><span class="contact__span">¡Súbete a BeApolo!</span> Nosotros pilotamos, tú dejas la huella.</p>
+                </div>
+                <div class="contact__wrapper">
+                    <!-- <form class="contact__form" action="https://formsubmit.co/064cc2da389f2bcc495ad9893e85764e" method="POST" > -->
+                    <form class="contact__form" action="#" method="POST" >
+                        <div class="input__field">
+                            <input class="contact__input" type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE" autocomplete="off">
+                            <div class="error__text"> El nombre no puede estar vacío</div>
+                        </div>
+
+                        <input class="contact__input" type="text" id="apellido" name="apellido" value="" placeholder="APELLIDO" autocomplete="off">
+
+                        <div class="input__field">
+                            <input class="contact__input" type="email" id="mail" name="mail" value="" placeholder="MAIL" autocomplete="off">
+                            <div class="error__text email"> El correo no puede estar vacío</div>
+                        </div>
+
+                        <input class="contact__input" type="tel" id="telefono" name="telefono" value="" placeholder="TELÉFONO" autocomplete="off">
+
+                        <input class="contact__input" type="text" id="pais" name="pais" value="" placeholder="PAÍS" autocomplete="off">
+                        
+                        <input class="contact__input" type="text" id="asunto" name="asunto" value="" placeholder="ASUNTO" autocomplete="off">
+
+                        <textarea class="contact__input" name="cuentamos" id="cuentanos" value="" placeholder="CUÉNTANOS..." cols="30" rows="5" autocomplete="off"></textarea>
+
+                        <div class="checkbox__form">
+                            <input class="contact__checkbox" type="checkbox" name="acepto" id="acepto" required>
+                            <label class="contact__checkbox" for="acepto">Si, acepto los términos de la <a class="contact__checkbox" href="/politica-de-privacidad.html"> política de privacidad</a></label>
+                            <div class="error__text"> Debes aceptar las políticas de privacidad</div>
+                        </div>
+
+                        <div class="input__button">
+                            <div class="error__text"> Debes completar los campos</div>
+                            <div class="success__text"> ¡Tu mensaje se ha enviado con éxito!
+                            <span class="bold">¡Pronto aterrizaremos tu idea!</span></div>
+                            <input class="contact__input submit__input" type="submit" value="ENVIAR">
+                            
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section id="map" class="map">
+                <h2 class="h2">Dónde estamos</h2>
+                <div class="map__wrapper">
+                    <picture class="map__picture">
+                        <img src="/assets/map.svg" alt="" class="map__img" draggable="false">
+                    </picture>
+                </div>
+                <a href="#contact">
+                    <button class="content__button">DESCUBRE TU MERCADO</button>
+                </a>
+            </section>
+        </div>
+        <footer class="footer">
+            <div class="legal">
+                <ul class="legal__ul">
+                    <li class="legal__li"><a href="/politica-de-privacidad.html" title="Página de Política de Privacidad">Política de privacidad</a></li>
+                    <li class="legal__li"><a href="/politica-de-cookies.html" title="Página de Política de Cookies">Política de cookies</a></li>
+                    <li class="legal__li"><a href="/aviso-legal.html" title="Página de Aviso Legal">Aviso legal</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <span class="copyright__span">info@hod.media</span>
+                <span class="copyright__span">Copyright © 2024 BeApolo. Todos los derechos reservados.</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+
+
