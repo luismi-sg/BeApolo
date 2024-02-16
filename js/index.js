@@ -129,6 +129,15 @@ tabButton.forEach( function ( eachTab , index){
   })
 })
 
+const contentSlider = document.querySelector(".slider__wrapper")
+const container = document.querySelector(".premium__slider")
+const slides = document.querySelectorAll(".premium__img")
+
+
+
+
+
+
 const accordionTitle = document.querySelectorAll(".accordion__title")
 const accordionButton = document.querySelectorAll(".abrir__accordion")
 const accordionData = document.querySelectorAll(".item__text")

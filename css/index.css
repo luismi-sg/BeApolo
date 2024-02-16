@@ -1323,8 +1323,21 @@ textarea.contact__input {
     .publicity__tabs{
         min-width: 100%;
     }
+    .slider__wrapper{
+        overflow-x: hidden;
+    }
     .premium__slider{
-        overflow: hidden;
+        padding: 2rem;
+        overflow-x: scroll;
+        justify-content: flex-start;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+    .premium__img{
+        scroll-snap-align: center;
+        width: 100%;
     }
 }
 @media screen and (max-width:1300px){
@@ -1502,7 +1515,7 @@ textarea.contact__input {
     }
     .clients__carrousel{
         display: inline-block;
-        animation: 10s slideLogos infinite linear;
+        animation: 15s slideLogos infinite linear;
         overflow: visible;
         padding: 0 20px;
     }
@@ -1698,6 +1711,9 @@ textarea.contact__input {
     }
     .context__title{
         font-size: 28px;
+    }
+    .premium__slider{
+        padding: 2rem 4rem;
     }
     .premium__text{
         padding: 1rem;
