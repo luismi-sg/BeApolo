@@ -1,23 +1,18 @@
 'use strict'
 
 const cursor = document.querySelector(".cursor__ball");
-
-const attentionBox = (document.querySelector(".content").offsetTop) + (document.querySelector(".attention").offsetTop) - 210
-const attentionBoxHeight = document.querySelector(".attention").clientHeight
+const attentionContainer = document.querySelector(".attention")
 document.body.addEventListener("mousemove", function(e) {
   cursor.style.left = e.clientX + "px",
   cursor.style.top = e.clientY + "px";
-  if(e.layerY > attentionBox && e.layerY < (attentionBox + attentionBoxHeight)){
-    cursor.classList.add("bigger__ball")
-  }
-  else{
-    cursor.classList.remove("bigger__ball")
-  }
 });
+attentionContainer.addEventListener("mouseover" , () => {
+  cursor.classList.add("bigger__ball")
+})
+attentionContainer.addEventListener("mouseout" , () => {
+  cursor.classList.remove("bigger__ball")
+})
 
-// document.body.addEventListener("mouesmove", function(e){
-//   if(e.clientY )
-// })
 
 const cookieBox = document.querySelector(".cookies");
 const cookieButtons = document.querySelectorAll(".cookies__button");
@@ -42,6 +37,33 @@ const executeCodes = () => {
 
 //executeCodes function will be called on webpage load
 window.addEventListener("load", executeCodes);
+
+
+
+const headerLi = document.querySelectorAll(".liAnimation")
+
+headerLi.forEach( function ( eachLi , index ){
+  eachLi.addEventListener("mouseover" , function(){
+    cursor.style.width = `${headerLi[index].clientWidth + 32}px`
+    cursor.classList.add("animation__li")
+    headerLi[index].style.color = `var(--primaryColor)`
+  })
+  eachLi.addEventListener("mouseout" , function(){
+    cursor.classList.remove("animation__li")
+    cursor.style.width = `12px`
+    headerLi[index].style.color = `var(--bgColorWhite)`
+  })
+})
+
+const toUpButton = document.querySelector(".toupbutton")
+const publicityContainerHeight = document.querySelector(".publicity").offsetTop
+
+window.addEventListener("scroll" , () => {
+  const positionButton = window.visualViewport.pageTop
+  publicityContainerHeight < positionButton  ? toUpButton.classList.add("upIsActive") : toUpButton.classList.remove("upIsActive")
+})
+
+
 
 const langDesktop = document.querySelector(".lang__desktop")
 const langModal = document.querySelector(".lang__wrapper")
@@ -113,6 +135,62 @@ setInterval(autoAmountAnimation, 2000);
 
 
 
+const technologyWrapDesktop = document.querySelector(".technology__slider.wrapper__desktop")
+const technologyItemDesktopWidth = document.querySelectorAll(".technology__item")[0].clientWidth
+const technologyWrapDesktopHeight = document.querySelector(".content").offsetTop
+
+window.addEventListener("load" , () => technologyWrapDesktop.scrollLeft == 0)
+window.addEventListener("scroll" , () => {
+  const positionTechnology = window.visualViewport.pageTop
+  if( technologyWrapDesktopHeight < positionTechnology){
+
+    technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * 3
+
+  }
+})
+
+
+
+const technologyCard = document.querySelectorAll(".technology__item.slider__mobile")
+const technologyWrapper = document.querySelectorAll(".technology__wrapper")
+const triggerSlider = document.querySelectorAll(".trigger__slider")
+const openTrigger = document.querySelectorAll(".trigger__open")
+const closeTrigger = document.querySelectorAll(".trigger__close")
+
+technologyCard.forEach( function( eachCard , i ) {
+  triggerSlider[i].addEventListener("click" , function(){
+    technologyCard[i].classList.toggle("isOpen")
+    technologyWrapper[i].classList.toggle("isOpen")
+    openTrigger[i].classList.toggle("iconTrigger")
+    closeTrigger[i].classList.toggle("iconTrigger")
+  })
+})
+
+const technologySliderMobile = document.querySelector(".technology__slider.slider__mobile")
+const technologyCardWidth = technologySliderMobile.querySelectorAll("article")[0].clientWidth
+const technologyPointers = document.querySelectorAll(".technology__pointer")
+
+technologyPointers.forEach( ( eachPointer , i ) => {
+  eachPointer.addEventListener("click" , () => {
+    let positionPointer = i
+    technologySliderMobile.scrollLeft = (technologyCardWidth + 32 ) * i
+    technologyPointers.forEach( (item, i ) => {
+      i <= positionPointer ?
+      technologyPointers[i].classList.add("pointer__active") :
+      technologyPointers[i].classList.remove("pointer__active")
+    })
+  })
+})
+technologySliderMobile.addEventListener("scroll" , () => {
+  let calculo = Math.round(technologySliderMobile.scrollLeft / (technologyCardWidth + 32))
+  technologyPointers.forEach( ( eachPointer , i ) => {
+    i <= calculo ?
+      technologyPointers[i].classList.add("pointer__active") :
+      technologyPointers[i].classList.remove("pointer__active")
+  })
+})
+
+
 const tabButton = document.querySelectorAll(".publicity__button")
 const tabData = document.querySelectorAll(".publicity__tabs")
 
@@ -129,14 +207,18 @@ tabButton.forEach( function ( eachTab , index){
   })
 })
 
-const contentSlider = document.querySelector(".slider__wrapper")
-const container = document.querySelector(".premium__slider")
-const slides = document.querySelectorAll(".premium__img")
 
+const premiumSlider = document.querySelector(".premium__slider")
+const premiumImg = document.querySelectorAll(".premium__img")
+const premiumContainerHeight = document.querySelector(".premium").offsetTop
 
-
-
-
+window.addEventListener("load" , () => premiumSlider.scrollLeft = 0)
+window.addEventListener("scroll" , () => {
+  const positionPremium = window.visualViewport.pageTop
+  if(premiumContainerHeight < positionPremium){
+    premiumSlider.scrollLeft = premiumImg[0].clientWidth
+  } 
+})
 
 const accordionTitle = document.querySelectorAll(".accordion__title")
 const accordionButton = document.querySelectorAll(".abrir__accordion")
@@ -185,54 +267,59 @@ accordionCerrar.forEach( function (eachCerrar , index){
 })
 
 const audienceSlider = document.querySelector(".audience__cards")
+const audienceItemWidth = document.querySelectorAll(".cards__article")[0].clientWidth - 6
 const audiencePointer = document.querySelectorAll(".pointer__audience")
 let pantalla = window.innerWidth
-
 window.addEventListener('resize' , function(){
   pantalla = window.innerWidth
 })
+if (pantalla <= '960' ){
+  audiencePointer.forEach ( ( eachPointer , index ) => {
+    audiencePointer[index].addEventListener('click', () =>{
+      let position  = index
+      audienceSlider.scrollLeft = audienceItemWidth * index
 
-audiencePointer.forEach ( ( eachPointer , index ) => { 
-  audiencePointer[index].addEventListener('click', () =>{
-    let position  = index
-    let calc      = position * -50
-    let calcMobile = position * -100
-    
-    pantalla <= '620' ? 
-    audienceSlider.style.transform = `translateX(calc(${ calcMobile }% - ${position * 2}rem))` :
-    audienceSlider.style.transform = `translateX(calc(${ calc }% - ${position}rem))`
-
-    audiencePointer.forEach( ( item , i ) => {
-      i <= position  ?
-      audiencePointer[i].classList.add("actual") :
-      audiencePointer[i].classList.remove("actual")
+      audiencePointer.forEach( ( item , i ) => {
+        i <= position  ?
+        audiencePointer[i].classList.add("actual") :
+        audiencePointer[i].classList.remove("actual")
+      })
     })
   })
-})
+  audienceSlider.addEventListener("scroll" , function(){
+    audiencePointer.forEach( (eachPointer , i) => {
+      let calculo = Math.round(audienceSlider.scrollLeft / (audienceItemWidth + 32)) 
+      audiencePointer.forEach( ( item , i ) => {
+        i <= calculo  ?
+        audiencePointer[i].classList.add("actual") :
+        audiencePointer[i].classList.remove("actual")
+      })
+    } )
+  })
+}
 
 let Slideposition = 0
 
 function AutoSlider(){
   Slideposition < (audiencePointer.length - 1) ? Slideposition++ : Slideposition = 0
-
-  let calc      = Slideposition * -50
-  let calcMobile = Slideposition * -100
-
-  pantalla <= '620' ? 
-  audienceSlider.style.transform = `translateX(calc(${ calcMobile }% - ${Slideposition * 2}rem))` :
-  audienceSlider.style.transform = `translateX(calc(${ calc }% - ${Slideposition}rem))`
-
+  audienceSlider.scrollLeft = audienceItemWidth * Slideposition
   audiencePointer.forEach( ( item , i ) => {
     i <= Slideposition  ?
     audiencePointer[i].classList.add("actual") :
     audiencePointer[i].classList.remove("actual")
   })
-
-  setTimeout(AutoSlider, 4000); // Change image every 2 seconds
+  setTimeout(AutoSlider, 4000); // Change image every 4 seconds
 }
-
 pantalla <= '960' && AutoSlider()
 
+// audienceSlider.addEventListener("touchstart" , () => {
+//   console.log("funciona")
+//   clearTimeout(AutoSlider)
+// })
+// audienceSlider.addEventListener("touchend" , () => {
+//   console.log("sale")
+  
+// })
 
 
 const form = document.querySelector("form")
