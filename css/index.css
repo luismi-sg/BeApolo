@@ -101,7 +101,7 @@ body {
     font-size: 100%;
 }
 .main{
-    max-width: 1920px;
+    max-width: 100%;
     margin: 0 auto;
     position: relative;
 }
@@ -242,6 +242,7 @@ html {
     opacity: 1;
     transform: scale(1);
     visibility: visible;
+    cursor: pointer;
 }
 
 /*AQUI TERMINAN EL BANNER DE COOKIES*/
@@ -429,7 +430,8 @@ html {
     font-style: italic;
 }
 .content{
-    max-width: 1920px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 .lap{
     background-color: var(--bgColorWhite);
@@ -533,23 +535,6 @@ html {
 .technology__slider.slider__mobile{
     display: none;
 }
-/* .arrows__wrapper{
-    background-color: var(--primaryColor);
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    padding: 2rem;
-}
-.slider__arrow{
-    display: block;
-    background-color: #ff472f;
-    margin: 2rem;
-    padding: 2rem;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-} */
 .technology__item{
     max-width: 420px;
     aspect-ratio: 3 / 2;
@@ -1537,7 +1522,7 @@ textarea.contact__input {
     .technology__slider.slider__mobile{
         display: flex;
         align-items: flex-start;
-        position: static;
+        
     }
     .technology__item.slider__mobile{
         position: relative;
@@ -1545,10 +1530,11 @@ textarea.contact__input {
         box-shadow: none;
         scroll-snap-align: center;
         height: 340px;
+        transition: all 1s ease;
     }
     .technology__item.slider__mobile.isOpen{
         overflow-y: visible;
-        height: auto;
+        height: 660px;
     }
     .technology__wrapper{
         height: 315px;
@@ -1846,12 +1832,18 @@ textarea.contact__input {
     .title__span{
         font-size: 30px;
     }
+    .technology__slider{
+        padding: 2rem 3rem;
+    }
     .technology__item{
         max-width: 320px;
         aspect-ratio: 4 / 3;
     }
     .technology__item.slider__mobile{
         height: 260px;
+    }
+    .technology__item.slider__mobile.isOpen{
+        height: 640px;
     }
     .technology__wrapper{
         height: 240px;

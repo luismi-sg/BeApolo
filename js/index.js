@@ -55,16 +55,6 @@ headerLi.forEach( function ( eachLi , index ){
   })
 })
 
-const toUpButton = document.querySelector(".toupbutton")
-const publicityContainerHeight = document.querySelector(".publicity").offsetTop
-
-window.addEventListener("scroll" , () => {
-  const positionButton = window.visualViewport.pageTop
-  publicityContainerHeight < positionButton  ? toUpButton.classList.add("upIsActive") : toUpButton.classList.remove("upIsActive")
-})
-
-
-
 const langDesktop = document.querySelector(".lang__desktop")
 const langModal = document.querySelector(".lang__wrapper")
 const langa = document.querySelectorAll(".lang__a")
@@ -84,12 +74,11 @@ langDesktop.addEventListener("click" , () => {
 
 langa.forEach( function ( item , i ){
   langa[i].addEventListener("click" , function(e) {
-    e.preventDefault
+    e.preventDefault()
     langSpan[i].classList.add("iconActive")
     langIcon[i].classList.add("iconActive")
   })
 })
-
 
 const modalMenu = document.querySelector(".modal__mobile");
 const botones = document.querySelectorAll(".abrir__menu , .cerrar__menu");
@@ -109,16 +98,107 @@ botonesLi.forEach( function ( eachBotonLi , index ){
   })
 })
 
+const toUpButton = document.querySelector(".toupbutton")
+const publicityContainerHeight = document.querySelector(".publicity").offsetTop
+
+const buttonTopaction = () => {
+  const positionButton = window.visualViewport.pageTop
+  publicityContainerHeight < positionButton  ? toUpButton.classList.add("upIsActive") : toUpButton.classList.remove("upIsActive")
+}
+
+window.addEventListener("scroll" , buttonTopaction )
+
+const technologyWrapDesktop = document.querySelector(".technology__slider.wrapper__desktop")
+const technologyItemDesktopWidth = document.querySelectorAll(".technology__item")[0].clientWidth
+const technologyWrapDesktopHeight = document.querySelector(".content").offsetTop
+
+window.addEventListener("load" , () => technologyWrapDesktop.scrollLeft == 0)
+
+const scrollTechSlider = () => {
+  const positionTechnology = window.visualViewport.pageTop
+  if( technologyWrapDesktopHeight < positionTechnology){
+    technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * 2
+    window.removeEventListener("scroll" , scrollTechSlider)
+  }
+}
+
+window.addEventListener("scroll" , scrollTechSlider )
+
+// Variables para almacenar la posición inicial y el punto de desplazamiento
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Evento mousedown: usuario hace clic y mantiene presionado
+technologyWrapDesktop.addEventListener('mousedown', (e) => {
+  isDown = true;
+  // technologyWrapDesktop.classList.add('active'); // Opcional: añadir una clase para efectos visuales
+  startX = e.pageX - technologyWrapDesktop.offsetLeft; // Posición inicial del cursor
+  scrollLeft = technologyWrapDesktop.scrollLeft; // Posición inicial del desplazamiento
+});
+
+// Evento mouseleave: usuario deja el área del contenedor
+technologyWrapDesktop.addEventListener('mouseleave', () => {
+  isDown = false;
+  // technologyWrapDesktop.classList.remove('active'); // Opcional: remover la clase
+});
+
+// Evento mouseup: usuario suelta el clic
+technologyWrapDesktop.addEventListener('mouseup', () => {
+  isDown = false;
+  // technologyWrapDesktop.classList.remove('active'); // Opcional: remover la clase
+});
+
+// Evento mousemove: usuario arrastra el mouse
+technologyWrapDesktop.addEventListener('mousemove', (e) => {
+  if (!isDown) return; // Si no está presionado, no hacer nada
+  e.preventDefault(); // Previene cualquier selección de texto accidental
+  const x = e.pageX - technologyWrapDesktop.offsetLeft; // Posición actual del cursor
+  const walk = (x - startX) * 2; // Calcular el desplazamiento (*3 para aumentar la velocidad)
+  technologyWrapDesktop.scrollLeft = scrollLeft - walk;
+});
+
+
+const premiumSlider = document.querySelector(".premium__slider")
+const premiumImg = document.querySelectorAll(".premium__img")
+const premiumContainerHeight = document.querySelector(".premium").offsetTop
+
+
+window.addEventListener("load" , () => premiumSlider.scrollLeft = 0)
+const scrollPremiumSlider = () => {
+  const positionPremium = window.visualViewport.pageTop
+  if(premiumContainerHeight < positionPremium){
+    premiumSlider.scrollLeft = premiumImg[0].clientWidth
+    window.removeEventListener("scroll" , scrollPremiumSlider) 
+  } 
+}
+window.addEventListener("scroll" , scrollPremiumSlider)
+
+
+
 const animationTitle = document.querySelector(".title__animation")
 const spanTitle = document.querySelectorAll(".title__span")
+const animationHeight = spanTitle[0].clientHeight
 let animationTitlePosition = 0
+let interval = 2000
 
 function autoAnimation(){
-    const animationHeight = spanTitle[0].clientHeight * animationTitlePosition
-    animationTitle.style.transform = `translateY(-${animationHeight}px)`
-    animationTitlePosition < spanTitle.length - 1 ? animationTitlePosition++ : animationTitlePosition = 0
+  animationTitlePosition++
+  animationTitle.style.transform = `translateY(-${animationHeight * animationTitlePosition}px)`
+  if (animationTitlePosition >= spanTitle.length / 2) {
+    setTimeout(() => {
+      animationTitle.style.transition = 'none'; // Desactivar la transición
+      animationTitle.style.transform = 'translateY(0px)'; // Volver al inicio
+      animationTitlePosition = 0; // Reiniciar índice
+      // Necesitamos reactivar la transición después de que el navegador haya tenido tiempo de pintar la actualización
+      setTimeout(() => {
+        animationTitle.style.transition = 'all 0.5s ease';
+      }, 0);
+    }, 500); // Hacer coincidir con el tiempo de transición de CSS
+  }
 }
-setInterval(autoAnimation, 2000);
+let carouselInterval = setInterval(autoAnimation, interval);
+
 
 const animationAmount = document.querySelectorAll(".amount__animation")
 const spanAmount = document.querySelectorAll(".amount__span")
@@ -135,19 +215,7 @@ setInterval(autoAmountAnimation, 2000);
 
 
 
-const technologyWrapDesktop = document.querySelector(".technology__slider.wrapper__desktop")
-const technologyItemDesktopWidth = document.querySelectorAll(".technology__item")[0].clientWidth
-const technologyWrapDesktopHeight = document.querySelector(".content").offsetTop
 
-window.addEventListener("load" , () => technologyWrapDesktop.scrollLeft == 0)
-window.addEventListener("scroll" , () => {
-  const positionTechnology = window.visualViewport.pageTop
-  if( technologyWrapDesktopHeight < positionTechnology){
-
-    technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * 3
-
-  }
-})
 
 
 
@@ -207,19 +275,6 @@ tabButton.forEach( function ( eachTab , index){
   })
 })
 
-
-const premiumSlider = document.querySelector(".premium__slider")
-const premiumImg = document.querySelectorAll(".premium__img")
-const premiumContainerHeight = document.querySelector(".premium").offsetTop
-
-window.addEventListener("load" , () => premiumSlider.scrollLeft = 0)
-window.addEventListener("scroll" , () => {
-  const positionPremium = window.visualViewport.pageTop
-  if(premiumContainerHeight < positionPremium){
-    premiumSlider.scrollLeft = premiumImg[0].clientWidth
-  } 
-})
-
 const accordionTitle = document.querySelectorAll(".accordion__title")
 const accordionButton = document.querySelectorAll(".abrir__accordion")
 const accordionData = document.querySelectorAll(".item__text")
@@ -266,60 +321,71 @@ accordionCerrar.forEach( function (eachCerrar , index){
   })
 })
 
-const audienceSlider = document.querySelector(".audience__cards")
-const audienceItemWidth = document.querySelectorAll(".cards__article")[0].clientWidth - 6
-const audiencePointer = document.querySelectorAll(".pointer__audience")
-let pantalla = window.innerWidth
-window.addEventListener('resize' , function(){
-  pantalla = window.innerWidth
-})
-if (pantalla <= '960' ){
-  audiencePointer.forEach ( ( eachPointer , index ) => {
-    audiencePointer[index].addEventListener('click', () =>{
-      let position  = index
-      audienceSlider.scrollLeft = audienceItemWidth * index
 
-      audiencePointer.forEach( ( item , i ) => {
-        i <= position  ?
-        audiencePointer[i].classList.add("actual") :
-        audiencePointer[i].classList.remove("actual")
-      })
-    })
-  })
-  audienceSlider.addEventListener("scroll" , function(){
-    audiencePointer.forEach( (eachPointer , i) => {
-      let calculo = Math.round(audienceSlider.scrollLeft / (audienceItemWidth + 32)) 
-      audiencePointer.forEach( ( item , i ) => {
-        i <= calculo  ?
-        audiencePointer[i].classList.add("actual") :
-        audiencePointer[i].classList.remove("actual")
-      })
-    } )
-  })
+const audienceSlider = document.querySelector(".audience__cards");
+const audienceItemWidth = document.querySelectorAll(".cards__article")[0].clientWidth - 6;
+const audiencePointers = document.querySelectorAll(".pointer__audience");
+
+let pantalla = window.innerWidth;
+
+function updateWindowSize() {
+  pantalla = window.innerWidth;
 }
 
-let Slideposition = 0
+window.addEventListener('resize', updateWindowSize);
 
-function AutoSlider(){
-  Slideposition < (audiencePointer.length - 1) ? Slideposition++ : Slideposition = 0
-  audienceSlider.scrollLeft = audienceItemWidth * Slideposition
-  audiencePointer.forEach( ( item , i ) => {
-    i <= Slideposition  ?
-    audiencePointer[i].classList.add("actual") :
-    audiencePointer[i].classList.remove("actual")
-  })
-  setTimeout(AutoSlider, 4000); // Change image every 4 seconds
+function updateActivePointer(position) {
+  audiencePointers.forEach((pointer, index) => {
+    if (index <= position) {
+      pointer.classList.add("actual");
+    } else {
+      pointer.classList.remove("actual");
+    }
+  });
 }
-pantalla <= '960' && AutoSlider()
 
-// audienceSlider.addEventListener("touchstart" , () => {
-//   console.log("funciona")
-//   clearTimeout(AutoSlider)
-// })
-// audienceSlider.addEventListener("touchend" , () => {
-//   console.log("sale")
+if (pantalla <= 960) {
+  audiencePointers.forEach((pointer, index) => {
+    pointer.addEventListener('click', () => {
+      audienceSlider.scrollLeft = audienceItemWidth * index;
+      updateActivePointer(index);
+    });
+  });
+
+  audienceSlider.addEventListener("scroll", () => {
+    const calculo = Math.round(audienceSlider.scrollLeft / (audienceItemWidth + 32));
+    updateActivePointer(calculo);
+  });
+
+  let Slideposition = 0
+  let timer
+  function autoSlider() {
+    const position = Slideposition < audiencePointers.length - 1 ? Slideposition + 1 : 0;
+    audienceSlider.scrollLeft = audienceItemWidth * position;
+    Slideposition = position;
+    updateActivePointer(position);
+  }
+  function startAutoSlider(){
+    stopAutoSlider()
+    timer = setInterval(autoSlider , 4000)
+  }
+  function stopAutoSlider() {
+    clearInterval(timer);
+  }
+  function handleTouchStart() {
+    stopAutoSlider();
+  }
   
-// })
+  function handleTouchEnd() {
+    stopAutoSlider();
+  }
+
+  audienceSlider.addEventListener('touchstart', handleTouchStart);
+  audiencePointers.forEach((pointer, i ) => pointer.addEventListener('touchstart' , handleTouchStart))
+  audienceSlider.addEventListener('touchend', handleTouchEnd);
+  audiencePointers.forEach((pointer, i ) => pointer.addEventListener('touchend' , handleTouchEnd))
+  startAutoSlider(); // Initiate auto-slider if screen width is appropriate.
+}
 
 
 const form = document.querySelector("form")
