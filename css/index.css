@@ -61,10 +61,30 @@ li {
 html {
     scroll-behavior: smooth;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    
+  }
+  
+  /* Estilos para las celdas y los encabezados de la tabla */
+  th, td {
+    padding: 8px;
+    border: 1px solid #ddd; /* color de borde */
+    text-align: left;
+    font-size: 14px;
+    color: var(--bgColorWhite);
+  }
+  
+  /* Estilos para los encabezados de la tabla */
+  th {
+    color: var(--secondaryColor);
+  }
 
 /* Desactivamos estilos por defecto de las principales etiquetas de texto */
 h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1em;
     font-weight: inherit;
     font-style: inherit;
@@ -1168,7 +1188,7 @@ html {
     font-style: italic;
 }
 .contact__wrapper{
-    min-width: 600px;
+    max-width: 800px;
 }
 .contact__form{
     width: 100%;
@@ -1178,6 +1198,18 @@ html {
     align-items: flex-start;
     gap: 1.5rem;
 
+}
+.input__field.input__p p{
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.5em;
+    color: var(--bgColorGray);
+}
+.input__field.input__p p a{
+    font-size: 12px;
+    line-height: 1.5em;
+    font-weight: 600;
+    color: var(--secondaryColor);
 }
 .input__field{
     width: 100%;
@@ -1199,13 +1231,15 @@ html {
     border-color: #ff472f;
 }
 .checkbox__form{
-    padding: 2rem 0;
+    padding: 0.5rem 0;
 }
-.contact__checkbox{
+.label-custom{
     font-size: 16px;
 }
-.contact__checkbox a{
+.label-custom {
+    display: inline;
     font-weight: 600;
+    color: var(--secondaryColor);
 }
 
 .error__text{
@@ -1220,16 +1254,54 @@ html {
     margin-bottom: 10px;
     display: block;
 }
+
 .checkbox__form{
     display: flex;
     gap: 1rem;
 }
-.contact__checkbox {
-    display: inline;
-    /* opcional */
+.checkbox-custom {
+    visibility: hidden;
+    position: absolute;
     -webkit-appearance: checkbox ;
         -moz-appearance: checkbox;
             appearance: checkbox;
+}
+/* Estiliza la etiqueta label que sigue al checkbox */
+.checkbox-custom + label {
+    position: relative;
+    padding-left: 30px; /* Espacio para la caja del checkbox */
+    cursor: pointer;
+    color: var(--secondaryColor);
+}
+
+/* Añade una representación visual del checkbox */
+.checkbox-custom + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px; /* Ancho del checkbox */
+    height: 16px; /* Altura del checkbox */
+    border: 1px solid var(--secondaryColor); /* Borde del checkbox */
+    background-color: var(--primaryColor); /* Fondo del checkbox */
+}
+
+/* Estilo del checkbox cuando está marcado */
+.checkbox-custom:checked + label::before {
+    background-color: var(--secondaryColor); /* Fondo cuando está marcado */
+}
+
+/* Añade un "tick" al checkbox marcado usando un pseudo-elemento */
+.checkbox-custom:checked + label::after {
+    content: "X";
+    font-weight: 800;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 4px;
+    top: 0;
+    font-size: 16px; /* Tamaño del "tick" */
+    color: var(--primaryColor) /* Color del "tick" */
 }
 textarea.contact__input {
     resize: none;
@@ -1317,6 +1389,25 @@ textarea.contact__input {
     font-size: 12px;
     color: var(--primaryColor);
 }
+.legalpage__container ul li{
+    list-style-type:disc;
+    line-height: 1.5em;
+    color: var(--bgColorGray);
+    font-weight: 300;
+}
+.legalpage__container a{
+    display: inline-block;
+    line-height: 1.5em;
+}
+.legalpage__h2.italic{
+    font-style: italic;
+    font-weight: 400;
+}
+.legalpage__h3{
+    font-size: 1.3em;
+    line-height: 1.6em;
+    margin-bottom: 16px;
+}
 .copyright{
     width: 100%;
     border-top: 1px solid var(--primaryColor);
@@ -1330,10 +1421,15 @@ textarea.contact__input {
     font-size: 14px;
     color: var(--primaryColor);
 }
+.header.legalpage{
+    cursor: auto;
+}
+.footer.legalpage{
+    cursor: auto;
+}
 .legalpage__container{
     cursor: auto;
     background-color: var(--primaryColor);
-    
 }
 .legalpage__wrapper{
     margin: 0 auto;

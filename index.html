@@ -19,7 +19,7 @@
     <div class="cookies">
         <div class="cookies__wrapper">
             <span class="cookies__title">Usamos cookies</span>
-            <p class="cookies__p">Las utilizamos para analizar los datos de nuestras visitas, mejorar nuestro sitio web, mostrar contenidos personalizados y ofrecer una experiencia web óptima. Para obtener más información sobre las cookies que utilizamos, consulte la configuración. <a href="/politica-de-cookies.html" title="Visitar política de Cookies"> Ver políticas de cookies.</a></p>
+            <p class="cookies__p">Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada en base a un perfil elaborado a partir de sus hábitos de navegación (por ejemplo, páginas visitadas). Puede obtener más información o cambiar posteriormente los ajustes en nuestra <a href="/politica-de-cookies.html" title="Visitar política de Cookies">política de cookies.</a></p>
             <div class="cookies__buttons">
                 <button class="cookies__button" id="declineBtn">Rechazar</button>
                 <button class="cookies__button" id="acceptBtn">Ok, aceptarlas todas</button>
@@ -130,7 +130,7 @@
                         <li class="header__li">ES</li>
                     </ul>
                     <div class="texto__mobile">
-                        <span class="email__mobile">info@hod.media</span>
+                        <span class="email__mobile">info@beapolo.io</span>
                         <span class="copy__mobile">Copyright © 2024 BeApolo. Todos los derechos reservados.</span>
                     </div>
                 </div>
@@ -669,37 +669,51 @@
                     <!-- <form class="contact__form" action="https://formsubmit.co/064cc2da389f2bcc495ad9893e85764e" method="POST" > -->
                     <form class="contact__form" action="#" method="POST" >
                         <div class="input__field">
-                            <input class="contact__input" type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE" autocomplete="off">
+                            <input class="contact__input" type="text" id="nombre" name="nombre" value="" placeholder="NOMBRE Y APELLIDO" autocomplete="off">
                             <div class="error__text"> El nombre no puede estar vacío</div>
                         </div>
-
-                        <input class="contact__input" type="text" id="apellido" name="apellido" value="" placeholder="APELLIDO" autocomplete="off">
 
                         <div class="input__field">
                             <input class="contact__input" type="email" id="mail" name="mail" value="" placeholder="MAIL" autocomplete="off">
                             <div class="error__text email"> El correo no puede estar vacío</div>
                         </div>
-
-                        <input class="contact__input" type="tel" id="telefono" name="telefono" value="" placeholder="TELÉFONO" autocomplete="off">
-
-                        <input class="contact__input" type="text" id="pais" name="pais" value="" placeholder="PAÍS" autocomplete="off">
-                        
-                        <input class="contact__input" type="text" id="asunto" name="asunto" value="" placeholder="ASUNTO" autocomplete="off">
-
+                        <div class="input__field">
+                            <input class="contact__input" type="tel" id="telefono" name="telefono" value="" placeholder="TELÉFONO" autocomplete="off">
+                            <div class="error__text email"> El teléfono no puede estar vacío</div>
+                        </div>
+                        <div class="input__field">
+                            <input class="contact__input" type="text" id="pais" name="pais" value="" placeholder="PAÍS" autocomplete="off">
+                            <div class="error__text email"> El país no puede estar vacío</div>
+                        </div>
                         <textarea class="contact__input" name="cuentamos" id="cuentanos" value="" placeholder="CUÉNTANOS..." cols="30" rows="5" autocomplete="off"></textarea>
 
-                        <div class="checkbox__form">
-                            <input class="contact__checkbox" type="checkbox" name="acepto" id="acepto" required>
-                            <label class="contact__checkbox" for="acepto">Si, acepto los términos de la <a class="contact__checkbox" href="/politica-de-privacidad.html"> política de privacidad</a></label>
-                            <div class="error__text"> Debes aceptar las políticas de privacidad</div>
+                        <div class="input__field input__p">
+                            <p>BeApolo, S.L. se compromete a proteger y respetar tu privacidad, y solo usaremos tu información personal para gestionar tu solicitud y proporcionarte los servicios solicitados. De vez en cuando, nos gustaría ponernos en contacto contigo acerca de nuestros productos y servicios, así como sobre otros contenidos que puedan interesarte. Si aceptas que nos comuniquemos contigo para este fin, marca la casilla siguiente:</p>
                         </div>
 
+                        <div class="input__field">
+                            <input class="checkbox-custom" type="checkbox" name="acepto" id="acepto">
+                            <label for="acepto">Acepto recibir otras comunicaciones de BeApolo, S.L.</label>
+                            <div class="error__text"> Rellena este campo obligatorio.</div>
+                        </div>
+
+                        <div class="input__field input__p">
+                            <p>Para poder atender tu solicitud, debemos almacenar y gestionar tus datos personales. Si aceptas que almacenemos tus datos personales para este fin, marca la casilla de abajo.</p>
+                        </div>
+
+                        <div class="input__field">
+                            <input class="checkbox-custom" type="checkbox" name="aceptoContacto" id="aceptoContacto">
+                            <label for="aceptoContacto">Acepto el tratamiento de datos de potenciales clientes y contactos web <a class="label-custom" href="/politica-de-privacidad.html"> (+Info)</a></label>
+                            <div class="error__text"> Rellena este campo obligatorio.</div>
+                        </div>
+                       
+                        <div class="input__field input__p">
+                            <p>Puedes darte de baja de estas comunicaciones en cualquier momento. Para obtener más información sobre cómo darte de baja, el tratamiento que hacemos de los datos personales y cómo nos comprometemos a proteger y respetar tu privacidad, consulta nuestra<a class="input__a" href="/politica-de-privacidad.html"><b> Política de privacidad.</b></a></p>
+                        </div>
                         <div class="input__button">
-                            <div class="error__text"> Debes completar los campos</div>
                             <div class="success__text"> ¡Tu mensaje se ha enviado con éxito!
                             <span class="bold">¡Pronto aterrizaremos tu idea!</span></div>
                             <input class="contact__input submit__input" type="submit" value="ENVIAR">
-                            
                         </div>
                     </form>
                 </div>
@@ -725,7 +739,7 @@
                 </ul>
             </div>
             <div class="copyright">
-                <span class="copyright__span">info@hod.media</span>
+                <span class="copyright__span">info@beapolo.io</span>
                 <span class="copyright__span">Copyright © 2024 BeApolo. Todos los derechos reservados.</span>
             </div>
         </footer>

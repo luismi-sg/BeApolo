@@ -390,11 +390,9 @@ if (pantalla <= 960) {
 
 const form = document.querySelector("form")
 const fullName = document.getElementById("nombre")
-const apellido = document.getElementById("apellido")
 const correo = document.getElementById("mail")
 const telefono = document.getElementById("telefono")
 const pais = document.getElementById("pais")
-const asunto = document.getElementById("asunto")
 const mensaje = document.getElementById("cuentanos")
 
 function sendEmail() {
@@ -402,12 +400,10 @@ function sendEmail() {
   const bodyMessage = `Hay un nuevo contacto en la Web BeApolo<br><br> Nombre: ${fullName.value}<br><br>Apellidos: ${apellido.value}<br><br>Correo: ${correo.value}<br><br>Telefono: ${telefono.value}<br><br>Pais: ${pais.value}<br><br>mensaje: ${mensaje.value}<br><br>`
 
   Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "info@beapolo.io",
-    Password : "EBF3BFEC3DD13624C19688F015EC9D013C78",
+    SecureToken : "0256e72f-189b-4180-84ee-ff9dc605bc99",
     To : 'info@beapolo.io',
     From : "info@beapolo.io",
-    Subject : asunto.value,
+    Subject : "Nuevo Contacto en BeApolo",
     Body : bodyMessage
   }).then(
     message => {
@@ -428,10 +424,10 @@ function checkInputs() {
       item.parentElement.classList.add("error")
     }
 
-    if( formItems[2].value != "" ){
+    if( formItems[1].value != "" ){
       checkEmail()
     }
-    formItems[2].addEventListener("keyup" , () => {
+    formItems[1].addEventListener("keyup" , () => {
       checkEmail()
     })
 
@@ -477,11 +473,9 @@ form.addEventListener("submit", (e) => {
 
   if(
     !fullName.classList.contains("error") &&
-    !apellido.classList.contains("error") &&
     !correo.classList.contains("error") &&
     !telefono.classList.contains("error") &&
     !pais.classList.contains("error") &&
-    !asunto.classList.contains("error") &&
     !mensaje.classList.contains("error")
     ){
       sendEmail();
