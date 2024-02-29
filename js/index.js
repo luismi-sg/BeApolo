@@ -1,5 +1,6 @@
 'use strict'
 
+const mainCursor = document.querySelector(".cursor")
 const cursor = document.querySelector(".cursor__ball");
 const attentionContainer = document.querySelector(".attention")
 document.body.addEventListener("mousemove", function(e) {
@@ -13,6 +14,12 @@ attentionContainer.addEventListener("mouseout" , () => {
   cursor.classList.remove("bigger__ball")
 })
 
+attentionContainer.addEventListener("touchstart" , () => {
+  mainCursor.classList.add("onMobile")
+})
+window.addEventListener("touchend" , () => {
+  mainCursor.classList.remove("onMobile")
+})
 
 const cookieBox = document.querySelector(".cookies");
 const cookieButtons = document.querySelectorAll(".cookies__button");
@@ -75,6 +82,8 @@ langDesktop.addEventListener("click" , () => {
 langa.forEach( function ( item , i ){
   langa[i].addEventListener("click" , function(e) {
     e.preventDefault()
+    langSpan.forEach( (item , i ) => item.classList.remove("iconActive"))
+    langIcon.forEach( (item , i ) => item.classList.remove("iconActive"))
     langSpan[i].classList.add("iconActive")
     langIcon[i].classList.add("iconActive")
   })
@@ -117,7 +126,7 @@ window.addEventListener("load" , () => technologyWrapDesktop.scrollLeft == 0)
 const scrollTechSlider = () => {
   const positionTechnology = window.visualViewport.pageTop
   if( technologyWrapDesktopHeight < positionTechnology){
-    technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * 2
+    technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * 1
     window.removeEventListener("scroll" , scrollTechSlider)
   }
 }
@@ -212,11 +221,6 @@ function autoAmountAnimation(){
     animationAmountPosition < (spanAmount.length - 2) / 2 ? animationAmountPosition++ : animationAmountPosition = 0
 }
 setInterval(autoAmountAnimation, 2000);
-
-
-
-
-
 
 
 const technologyCard = document.querySelectorAll(".technology__item.slider__mobile")
@@ -372,20 +376,21 @@ if (pantalla <= 960) {
   function stopAutoSlider() {
     clearInterval(timer);
   }
-  function handleTouchStart() {
-    stopAutoSlider();
-  }
-  
-  function handleTouchEnd() {
-    stopAutoSlider();
-  }
 
-  audienceSlider.addEventListener('touchstart', handleTouchStart);
-  audiencePointers.forEach((pointer, i ) => pointer.addEventListener('touchstart' , handleTouchStart))
-  audienceSlider.addEventListener('touchend', handleTouchEnd);
-  audiencePointers.forEach((pointer, i ) => pointer.addEventListener('touchend' , handleTouchEnd))
+  audienceSlider.addEventListener('touchstart', stopAutoSlider);
+  audiencePointers.forEach((pointer, i ) => pointer.addEventListener('touchstart' , stopAutoSlider))
+  audienceSlider.addEventListener('touchend', startAutoSlider);
+  audiencePointers.forEach((pointer, i ) => pointer.addEventListener('touchend' , startAutoSlider))
   startAutoSlider(); // Initiate auto-slider if screen width is appropriate.
 }
+
+
+const mapSlider = document.querySelector(".map__wrapper")
+
+window.addEventListener("load" , (e) => {
+  mapSlider.scrollLeft = 200
+})
+
 
 
 const form = document.querySelector("form")
@@ -397,7 +402,7 @@ const mensaje = document.getElementById("cuentanos")
 
 function sendEmail() {
 
-  const bodyMessage = `Hay un nuevo contacto en la Web BeApolo<br><br> Nombre: ${fullName.value}<br><br>Apellidos: ${apellido.value}<br><br>Correo: ${correo.value}<br><br>Telefono: ${telefono.value}<br><br>Pais: ${pais.value}<br><br>mensaje: ${mensaje.value}<br><br>`
+  const bodyMessage = `Hay un nuevo contacto en la Web BeApolo<br><br> Nombre: ${fullName.value}<br><br>Correo: ${correo.value}<br><br>Telefono: ${telefono.value}<br><br>Pais: ${pais.value}<br><br>mensaje: ${mensaje.value}<br><br>`
 
   Email.send({
     SecureToken : "0256e72f-189b-4180-84ee-ff9dc605bc99",
@@ -417,8 +422,21 @@ function sendEmail() {
 
 function checkInputs() {
   const formItems = document.querySelectorAll(".contact__input")
+  const checkBoxs = document.querySelectorAll(".checkbox-custom")
 
-  for( const item of formItems){
+  for( const check of checkBoxs){
+    if( check.checked != true){
+      check.parentElement.classList.add("error")
+    }
+    check.addEventListener("click" , () => {
+      if(check.checked == true){
+        check.parentElement.classList.remove("error")
+      }else{
+        check.parentElement.classList.add("error")
+      }
+    })
+  }
+  for( const item of formItems){    
     if(item.value == ""){
       item.classList.add("error")
       item.parentElement.classList.add("error")
