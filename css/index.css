@@ -65,7 +65,6 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    
   }
   
   /* Estilos para las celdas y los encabezados de la tabla */
@@ -142,12 +141,12 @@ html {
     border-radius: 12px;
     background-color: var(--secondaryColor);
     transform: translate(-50% , -50%);
-    transition: width .5s ease-out , height .5s ease-out , border-radius .5s ease , filter 0s ease;
+    transition: width .5s ease-out , height .5s ease-out , border-radius .5s ease , filter 0s linear;
 }
 .cursor__ball.bigger__ball{
     height: 150px;
     width: 150px;
-    filter: blur(50px);
+    filter: blur(40px);
     border-radius: 150px;
     background-color: var(--secondaryColor);
 }
@@ -407,7 +406,7 @@ html {
 }
 .hero{
     width: 100%;
-    min-height: 100svh;
+    min-height: 100dvh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -422,7 +421,7 @@ html {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100svh; 
+    height: 100dvh; 
     padding: 0;
     margin: 0;
     z-index: 0;
@@ -430,7 +429,7 @@ html {
 .hero__video{
     object-fit: cover;
     width: 100%;
-    min-height: 100svh;
+    min-height: 100dvh;
 }
 .hero__title{
     position: absolute;
@@ -532,15 +531,44 @@ html {
     color: var(--primaryColor);
     font-size: 16px;
     line-height: 1.3em;
+    position: relative;
 }
 .connect__p{
     text-transform: uppercase;
     font-style: italic;
     font-weight: 500;
 }
+.connect__p.highlight__text{
+    position: relative;
+}
 .connect__bold{
     font-weight: 800;
 }
+.highlight__text::before{
+    content: '';
+    transform: scaleX(0%);
+    width: calc(100% + 16px);
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: -8px;
+    background-color: var(--secondaryColor);
+    animation: highlightText 6s ease-in-out 1s  infinite alternate;
+    transform-origin: 0%;
+}
+@keyframes highlightText {
+    0%{
+        transform: scaleX(0%);
+    }
+    50%{
+        transform: scaleX(100%);
+    }
+    100%{
+        transform: scaleX(0%);
+    }
+}
+/*AQUI TERMINA EL LAP*/
+
 .technology{
     width: 100%;
     background-color: var(--bgColorGray);
@@ -556,8 +584,8 @@ html {
     font-size: 32px;
     line-height: 1.2em;
     text-transform: uppercase;
+    text-align: center;
     color: var(--primaryColor);
-
 }
 .technology__slider{
     width: 100%;
@@ -722,13 +750,15 @@ html {
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    margin-top: 1rem;
 }
 .publicity__p{
     font-size: 16px;
     line-height: 1.2em;
     text-align: center;
     color: var(--primaryColor);
+}
+.publicity__p span{
+    font-weight: 600;
 }
 .buttons__wrapper{
     display: flex;
@@ -880,13 +910,16 @@ html {
     align-items: center;
     gap: 1rem;
 }   
-
+.premium .h2{
+    padding-bottom: 2rem;
+}
 .premium__text{
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    
 }
 .premium__span{
     font-size: 16px;
@@ -897,6 +930,10 @@ html {
     background-color: var(--secondaryColor);
     box-shadow: 0px 0px 4px 4px var(--secondaryColor);
     border-radius: 24px;
+    margin: 1rem 0;
+}
+.premium__span span{
+    font-weight: 600;
 }
 .premium__slider{
     display: flex;
@@ -916,7 +953,7 @@ html {
     display: none;
 }
 .premium__img:hover{
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 /* AQUI TERMINA LA SECTION PREMIUM*/
 
@@ -939,23 +976,15 @@ html {
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 5rem;
-    overflow: hidden;
+    gap: 6rem;
     white-space: nowrap;
+    animation: 15s slideLogos infinite linear;
+    overflow: hidden;
 }
 .clients__wrapper{
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-}
-.clients__carrousel{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 6rem;
-    animation: 15s slideLogos infinite linear;
-    overflow: visible;
 }
 .clients__carrousel .clients__img{
     display: inline-block;
@@ -1000,6 +1029,9 @@ html {
     line-height: 1.2em;
     text-align: center;
     color: var(--primaryColor);
+}
+.impact__p span{
+    font-weight: 600;
 }
 .impact__accordion{
     width: 100%;
@@ -1170,7 +1202,7 @@ html {
 /* AQUI COMIENZA LA SECTION ATTENTION*/
 .attention{
     width: 100%;
-    min-height: 100svh;
+    min-height: 100dvh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -1194,6 +1226,9 @@ html {
     line-height: 1.2em;
     text-align: center;
     color: var(--bgColorWhite);
+}
+.attention__p span{
+    font-weight: 600;
 }
 /* AQUI TERMINA LA SECTION ATTENTION*/
 /* AQUI COMIENZA LA SECTION ATTENTION*/
@@ -1219,6 +1254,9 @@ html {
     line-height: 1.2em;
     text-align: center;
     color: var(--primaryColor);
+}
+.safety__p span{
+    font-weight: 600;
 }
 .safety__icons{
     display: flex;
@@ -1539,6 +1577,12 @@ textarea.contact__input {
 .legalpage__wrapper a:hover{
     color: var(--secondaryColor);
 }
+.table__desktop{
+    display: block;
+}
+.table__mobile{
+    display: none;
+}
 @media screen and (max-width:1400px){
     .publicity__tabs{
         min-width: 100%;
@@ -1581,7 +1625,7 @@ textarea.contact__input {
     }
     .modal__mobile{
         display: none;
-        min-height: 100svh;
+        min-height: 100dvh;
         width: 100%;
         position: fixed;
         top: 0;
@@ -1660,7 +1704,7 @@ textarea.contact__input {
 
 @media screen and (max-width:960px){
     .cookies{
-        min-height: 100svh;
+        min-height: 100dvh;
         padding: 2rem;
     }
     .cookies.show{
@@ -1678,20 +1722,15 @@ textarea.contact__input {
         cursor: auto;
     }
     .cursor{
-        display: none;
-        pointer-events: auto;  
-    }
-    .cursor.onMobile{
-        display: block;
+        visibility: hidden;
+        pointer-events: auto;
     }
     .cursor
     .lap__p,
     .connect__p{
         text-align: center;
     }
-    .hero::before{
-        height: calc( 100svh + 14px); 
-    }
+    
     .h2{
         font-size: 32px;
     }
@@ -1788,13 +1827,13 @@ textarea.contact__input {
         display: block;
     }
     .technology__pointers{
-        width: 100%;
+        width: 420px;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
         padding: 0 2rem;
-        gap: 2rem;
+        gap: 0.5rem;
     }
     .technology__pointer{
         height: 12px;
@@ -1856,6 +1895,19 @@ textarea.contact__input {
         padding: 3rem 0rem;
         overflow: hidden;
     }
+    .clients__carrousel{
+        width: 500%;
+        gap: 3rem;
+        animation: 18s slideLogos infinite linear;
+    }
+    @keyframes slideLogos {
+        from{
+            transform: translateX(0);
+        }
+        to{
+            transform: translateX(-80%);
+        }
+    }
     .impact{
         padding: 3rem 0rem 0;
     }
@@ -1903,7 +1955,7 @@ textarea.contact__input {
         display: none;
     }
     .attention{
-        min-height: 90svh;
+        min-height: 90dvh;
     }
     .safety{
         padding: 3rem 2rem;
@@ -1920,6 +1972,12 @@ textarea.contact__input {
     }
     .legal{
         justify-content: center;
+    }
+    .table__desktop{
+        display: none;
+    }
+    .table__mobile{
+        display: block;
     }
 }
 @media screen and (max-width:620px){
@@ -1960,7 +2018,7 @@ textarea.contact__input {
         padding: 2rem;
     }
     .cookies{
-        min-height: 100svh;
+        min-height: 100dvh;
         padding: 2rem;
     }
     .cookies.show{
@@ -1996,8 +2054,14 @@ textarea.contact__input {
     .title__span{
         font-size: 30px;
     }
+    .highlight__text::before{
+        height: 40px;
+    }
+    .technology .h2{
+        margin-bottom: 2rem;
+    }
     .technology__slider{
-        padding: 1rem 3rem;
+        padding: 0rem 3rem;
     }
     .technology__item{
         max-width: 320px;
@@ -2022,7 +2086,9 @@ textarea.contact__input {
         font-size: 14px;
     }
     .technology__pointers{
-        padding: 0 2rem;
+        margin-top: 1rem;
+        width: 320px;
+        padding: 0;
         gap: .5rem;
     }
     .technology__pointer{
@@ -2065,7 +2131,7 @@ textarea.contact__input {
         display: block;
     }
     .premium__text{
-        padding: 1rem;
+        padding: 0 1rem;
     }
     .premium__span{
         text-align: center;
@@ -2123,6 +2189,12 @@ textarea.contact__input {
     .legal{
         padding: 2rem 1rem;
     }
+    .legal a{
+        word-wrap:break-word;
+    }
+    .legalpage__wrapper a{
+        word-wrap:break-word;
+    }
     .legal__ul{
         gap: 1rem;
     }
@@ -2134,6 +2206,9 @@ textarea.contact__input {
         text-align: center;
         font-size: 14px;
         font-weight: 600;
+    }
+    .table__mobile{
+        max-width: 360px;
     }
 }
 @media screen and (max-width:320px){

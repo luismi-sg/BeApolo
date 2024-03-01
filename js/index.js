@@ -7,18 +7,12 @@ document.body.addEventListener("mousemove", function(e) {
   cursor.style.left = e.clientX + "px",
   cursor.style.top = e.clientY + "px";
 });
+
 attentionContainer.addEventListener("mouseover" , () => {
   cursor.classList.add("bigger__ball")
 })
 attentionContainer.addEventListener("mouseout" , () => {
   cursor.classList.remove("bigger__ball")
-})
-
-attentionContainer.addEventListener("touchstart" , () => {
-  mainCursor.classList.add("onMobile")
-})
-window.addEventListener("touchend" , () => {
-  mainCursor.classList.remove("onMobile")
 })
 
 const cookieBox = document.querySelector(".cookies");
