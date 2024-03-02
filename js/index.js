@@ -111,6 +111,28 @@ const buttonTopaction = () => {
 
 window.addEventListener("scroll" , buttonTopaction )
 
+const animationTitle = document.querySelector(".title__animation")
+const spanTitle = document.querySelectorAll(".title__span")
+const animationHeight = spanTitle[0].clientHeight
+let animationTitlePosition = 0
+let interval = 2000
+
+function autoAnimation(){
+  animationTitlePosition++
+  animationTitle.style.transform = `translateY(-${animationHeight * animationTitlePosition}px)`
+  if (animationTitlePosition >= spanTitle.length / 2) {
+    setTimeout(() => {
+      animationTitle.style.transition = 'none'; // Desactivar la transición
+      animationTitle.style.transform = 'translateY(0px)'; // Volver al inicio
+      animationTitlePosition = 0; // Reiniciar índice
+    }, 0); // Hacer coincidir con el tiempo de transición de CSS
+  }
+  animationTitle.style.transition = 'all 0.5s ease';
+}
+let carouselInterval = setInterval(autoAnimation, interval);
+
+/* -------------------AQUI EMPIEZAN LOS CARRUSELES DE TECNOLOGIAS DESKTOP Y MOBILE --------------------------*/
+
 const technologyWrapDesktop = document.querySelector(".technology__slider.wrapper__desktop")
 const technologyItemDesktop = document.querySelectorAll(".technology__item")
 const technologyItemDesktopWidth = document.querySelectorAll(".technology__item")[0].clientWidth
@@ -118,20 +140,20 @@ let animationTechPosition = 1
 let intervalTech = 3000
 let techDesktopInterval
 
+window.addEventListener("load" , () => {
+  technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth
+})
+
 function desktopTechAuto(){
   animationTechPosition++
   technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * animationTechPosition
-  if( animationTechPosition >= (technologyItemDesktop.length / 2) - 2){
+  if( animationTechPosition >= (technologyItemDesktop.length / 2) - 3){
     setTimeout(() => {
-      
       technologyWrapDesktop.style.scrollBehavior  = 'auto'
       technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth
       animationTechPosition = 0
-      setTimeout( () => {
-        technologyWrapDesktop.style.scrollBehavior  = 'smooth'
-      }, 0)
-    } , 500)
-  }
+    } , 0)}
+  technologyWrapDesktop.style.scrollBehavior  = 'smooth'
 }
 function startDesktopTechSlider(){
   stopDesktopTechSlider()
@@ -148,9 +170,7 @@ technologyWrapDesktop.addEventListener("mouseup" , startDesktopTechSlider)
 startDesktopTechSlider()
 
 
-window.addEventListener("load" , () => {
-  technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth
-})
+
 
 let isDown = false;
 let startX;
@@ -173,82 +193,6 @@ technologyWrapDesktop.addEventListener('mousemove', (e) => {
   technologyWrapDesktop.scrollLeft = scrollLeft - walk;
 });
 
-
-
-const animationTitle = document.querySelector(".title__animation")
-const spanTitle = document.querySelectorAll(".title__span")
-const animationHeight = spanTitle[0].clientHeight
-let animationTitlePosition = 0
-let interval = 2000
-
-function autoAnimation(){
-  animationTitlePosition++
-  animationTitle.style.transform = `translateY(-${animationHeight * animationTitlePosition}px)`
-  if (animationTitlePosition >= spanTitle.length / 2) {
-    setTimeout(() => {
-      animationTitle.style.transition = 'none'; // Desactivar la transición
-      animationTitle.style.transform = 'translateY(0px)'; // Volver al inicio
-      animationTitlePosition = 0; // Reiniciar índice
-      // Necesitamos reactivar la transición después de que el navegador haya tenido tiempo de pintar la actualización
-      setTimeout(() => {
-        animationTitle.style.transition = 'all 0.5s ease';
-      }, 0);
-    }, 500); // Hacer coincidir con el tiempo de transición de CSS
-  }
-}
-let carouselInterval = setInterval(autoAnimation, interval);
-
-const premiumSlider = document.querySelector(".premium__slider")
-const premiumImg = document.querySelectorAll(".premium__img")
-let imgPosition = 2
-let imgInterval = 3000
-let premiumSliderInterval
-
-window.addEventListener("load" , () => premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition)
-
-function premiumSliderAuto(){
-  imgPosition++
-  premiumImg.forEach( ( eachImg , i ) => {
-    eachImg.classList.remove("actualImg")
-  })
-  premiumImg[imgPosition].classList.add("actualImg")
-  premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
-  if( imgPosition >= premiumImg.length - 3){
-    setTimeout( () => {
-      premiumSlider.style.scrollBehavior = 'auto'
-      imgPosition = 2
-      premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
-      setTimeout( () => {
-        premiumSlider.style.scrollBehavior = 'smooth'
-      } , 0)
-    } , 500)
-  }
-}
-function startPremiumSlider(){
-  stopPremiumSlider()
-  premiumSliderInterval = setInterval(premiumSliderAuto , imgInterval)
-}
-function stopPremiumSlider(){
-  clearInterval(premiumSliderInterval)
-}
-premiumSlider.addEventListener("touchstart" , stopPremiumSlider)
-premiumSlider.addEventListener("touchend" , startPremiumSlider)
-startPremiumSlider()
-
-const animationAmount = document.querySelectorAll(".amount__animation")
-const spanAmount = document.querySelectorAll(".amount__span")
-let animationAmountPosition = 0
-
-function autoAmountAnimation(){
-  animationAmount.forEach( function( eachAmount , i ){
-    const animationAmountHeight = spanAmount[0].clientHeight * animationAmountPosition
-    eachAmount.style.transform = `translateY(-${animationAmountHeight}px)`
-  })
-    animationAmountPosition < (spanAmount.length - 2) / 2 ? animationAmountPosition++ : animationAmountPosition = 0
-}
-setInterval(autoAmountAnimation, 2000);
-
-
 const technologyCard = document.querySelectorAll(".technology__item.slider__mobile")
 const technologyWrapper = document.querySelectorAll(".technology__wrapper")
 const triggerSlider = document.querySelectorAll(".trigger__slider")
@@ -265,15 +209,43 @@ technologyCard.forEach( function( eachCard , i ) {
 })
 
 const technologySliderMobile = document.querySelector(".technology__slider.slider__mobile")
+const techItemsMobile = document.querySelectorAll(".technology__item.slider__mobile")
+console.log(techItemsMobile)
 const technologyCardWidth = technologySliderMobile.querySelectorAll("article")[0].clientWidth
 const technologyPointers = document.querySelectorAll(".technology__pointer")
+let techMobilePosition = 2
+let techMobileTimer = 3000
+let techMobileInterval
+
+window.addEventListener("load" , () => technologySliderMobile.scrollLeft = technologyCardWidth * techMobilePosition)
+function techMobileAuto(){
+  techMobilePosition++
+  technologySliderMobile.scrollLeft = (technologyCardWidth + 32) * techMobilePosition
+  if(techMobilePosition >= techItemsMobile.length - 2){
+    setTimeout( () => {
+      technologySliderMobile.style.scrollBehavior = 'auto'
+      premiumSlider.scrollLeft = (technologyCardWidth + 32) * 2
+      techMobilePosition = 1
+    } , 0)}
+  technologySliderMobile.style.scrollBehavior = 'smooth'
+}
+function startTechMobile(){
+  stopTechMobile()
+  techMobileInterval = setInterval( techMobileAuto , techMobileTimer)
+}
+function stopTechMobile(){
+  clearInterval(techMobileInterval)
+}
+technologySliderMobile.addEventListener("touchstart" , stopTechMobile)
+technologySliderMobile.addEventListener("touchend" , startTechMobile)
+startTechMobile()
 
 technologyPointers.forEach( ( eachPointer , i ) => {
   eachPointer.addEventListener("click" , () => {
-    let positionPointer = i
+    techMobilePosition = i
     technologySliderMobile.scrollLeft = (technologyCardWidth + 32 ) * i
     technologyPointers.forEach( (item, i ) => {
-      i <= positionPointer ?
+      i <= techMobilePosition ?
       technologyPointers[i].classList.add("pointer__active") :
       technologyPointers[i].classList.remove("pointer__active")
     })
@@ -281,12 +253,14 @@ technologyPointers.forEach( ( eachPointer , i ) => {
 })
 technologySliderMobile.addEventListener("scroll" , () => {
   let calculo = Math.round(technologySliderMobile.scrollLeft / (technologyCardWidth + 32))
+  calculo >= 8 ? calculo = 0 : calculo
   technologyPointers.forEach( ( eachPointer , i ) => {
     i <= calculo ?
       technologyPointers[i].classList.add("pointer__active") :
       technologyPointers[i].classList.remove("pointer__active")
   })
 })
+/* -------------------AQUI TERMINAN LOS CARRUSELES DE TECNOLOGIAS DESKTOP Y MOBILE --------------------------*/
 
 
 const tabButton = document.querySelectorAll(".publicity__button")
@@ -350,6 +324,67 @@ accordionCerrar.forEach( function (eachCerrar , index){
     }
   })
 })
+
+const premiumSlider = document.querySelector(".premium__slider")
+const premiumImg = document.querySelectorAll(".premium__img")
+console.log(premiumImg)
+let imgPosition = 1
+let imgInterval = 3000
+let premiumSliderInterval
+
+premiumSlider.addEventListener("scroll" , () =>{
+  window.addEventListener("load" , () => premiumSlider.scrollLeft = premiumImg[0].clientWidth)
+  imgPosition = Math.round(premiumSlider.scrollLeft / premiumImg[0].clientWidth)
+  premiumImg.forEach( ( eachImg , i ) => {
+    eachImg.classList.remove("actualImg")
+  })
+  premiumImg[imgPosition].classList.add("actualImg")
+})
+
+
+function premiumSliderAuto(){
+  imgPosition++
+  if( imgPosition <= premiumImg.length - 1){
+    premiumImg.forEach( ( eachImg , i ) => {
+      eachImg.classList.remove("actualImg")
+    })
+    premiumImg[imgPosition].classList.add("actualImg")
+  }
+  premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
+  if( imgPosition >= premiumImg.length - 1){
+    setTimeout( () => {
+      premiumSlider.style.scrollBehavior = 'auto'
+      premiumSlider.scrollLeft = premiumImg[0].clientWidth
+      imgPosition = 1
+    } , 0)}
+  premiumSlider.style.scrollBehavior = 'smooth'
+}
+
+function startPremiumSlider(){
+  stopPremiumSlider()
+  premiumSliderInterval = setInterval(premiumSliderAuto , imgInterval)
+}
+function stopPremiumSlider(){
+  clearInterval(premiumSliderInterval)
+}
+premiumSlider.addEventListener("touchstart" , stopPremiumSlider)
+premiumSlider.addEventListener("touchend" , startPremiumSlider)
+startPremiumSlider()
+
+
+const animationAmount = document.querySelectorAll(".amount__animation")
+const spanAmount = document.querySelectorAll(".amount__span")
+let animationAmountPosition = 0
+
+function autoAmountAnimation(){
+  animationAmount.forEach( function( eachAmount , i ){
+    const animationAmountHeight = spanAmount[0].clientHeight * animationAmountPosition
+    eachAmount.style.transform = `translateY(-${animationAmountHeight}px)`
+  })
+    animationAmountPosition < (spanAmount.length - 2) / 2 ? animationAmountPosition++ : animationAmountPosition = 0
+}
+setInterval(autoAmountAnimation, 2000);
+
 
 
 const audienceSlider = document.querySelector(".audience__cards");
