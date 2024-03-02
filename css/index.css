@@ -955,6 +955,7 @@ html {
 .premium__img:hover{
     transform: scale(1.04);
 }
+
 /* AQUI TERMINA LA SECTION PREMIUM*/
 
 /* AQUI EMPIEZA LA SECTION CLIENTS*/
@@ -1956,6 +1957,10 @@ textarea.contact__input {
     }
     .attention{
         min-height: 90dvh;
+        background-image: url(/assets/boladeluz2.gif);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
     .safety{
         padding: 3rem 2rem;
@@ -2126,9 +2131,14 @@ textarea.contact__input {
     }
     .premium__slider{
         padding: 2rem 3rem;
+        scroll-behavior: smooth;
     }
     .premium__img.onlyMobile{
         display: block;
+    }
+    .premium__img.actualImg{
+        transform: scale(1.04);
+        transition: all .5s ease;
     }
     .premium__text{
         padding: 0 1rem;
