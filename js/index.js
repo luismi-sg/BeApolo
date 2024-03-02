@@ -198,98 +198,42 @@ function autoAnimation(){
 }
 let carouselInterval = setInterval(autoAnimation, interval);
 
-const premiumSlider = document.querySelector(".premium__slider");
-const premiumImg = document.querySelectorAll(".premium__img");
-let imgPosition = 2;
-const imgInterval = 3000;
-let premiumSliderInterval;
+const premiumSlider = document.querySelector(".premium__slider")
+const premiumImg = document.querySelectorAll(".premium__img")
+let imgPosition = 2
+let imgInterval = 3000
+let premiumSliderInterval
 
-// Función para ajustar el scroll inicial y aplicar clase a la imagen actual.
-function adjustInitialScrollAndStyle() {
-    premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition;
-    premiumImg.forEach((img, i) => {
-        img.classList.remove("actualImg"); // Asegurarse de limpiar la clase antes de asignarla.
-    });
-    // Añadir clase a la imagen actual si está dentro del rango.
-    if (imgPosition >= 0 && imgPosition < premiumImg.length) {
-        premiumImg[imgPosition].classList.add("actualImg");
-    }
+window.addEventListener("load" , () => premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition)
+
+function premiumSliderAuto(){
+  imgPosition++
+  premiumImg.forEach( ( eachImg , i ) => {
+    eachImg.classList.remove("actualImg")
+  })
+  premiumImg[imgPosition].classList.add("actualImg")
+  premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
+  if( imgPosition >= premiumImg.length - 3){
+    setTimeout( () => {
+      premiumSlider.style.scrollBehavior = 'auto'
+      imgPosition = 2
+      premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
+      setTimeout( () => {
+        premiumSlider.style.scrollBehavior = 'smooth'
+      } , 0)
+    } , 500)
+  }
 }
-
-// Función para el desplazamiento automático del carrusel.
-function premiumSliderAuto() {
-    imgPosition++;
-    // Restablecer posición y comportamiento de scroll si es necesario.
-    if (imgPosition >= premiumImg.length - 3) {
-        imgPosition = 2; // Reiniciar la posición.
-        premiumSlider.style.scrollBehavior = 'auto'; // Evitar el desplazamiento suave al reiniciar.
-    }
-
-    adjustInitialScrollAndStyle(); // Ajustar scroll y estilo según la nueva posición.
-
-    // Restablecer el comportamiento de desplazamiento suave después de reiniciar.
-    if (premiumSlider.style.scrollBehavior === 'auto') {
-        setTimeout(() => {
-            premiumSlider.style.scrollBehavior = 'smooth';
-        }, 50); // Un pequeño retraso para asegurar que se aplique correctamente.
-    }
+function startPremiumSlider(){
+  stopPremiumSlider()
+  premiumSliderInterval = setInterval(premiumSliderAuto , imgInterval)
 }
-
-// Iniciar y detener funciones del carrusel.
-function startPremiumSlider() {
-    stopPremiumSlider();
-    premiumSliderInterval = setInterval(premiumSliderAuto, imgInterval);
+function stopPremiumSlider(){
+  clearInterval(premiumSliderInterval)
 }
-
-function stopPremiumSlider() {
-    clearInterval(premiumSliderInterval);
-}
-
-// Eventos para manejar el inicio y la parada del carrusel en interacción táctil.
-premiumSlider.addEventListener("touchstart", stopPremiumSlider);
-premiumSlider.addEventListener("touchend", startPremiumSlider);
-
-// Ajuste inicial al cargar la ventana.
-window.addEventListener("load", adjustInitialScrollAndStyle);
-
-// Iniciar el carrusel automáticamente.
-startPremiumSlider();
-// const premiumSlider = document.querySelector(".premium__slider")
-// const premiumImg = document.querySelectorAll(".premium__img")
-// let imgPosition = 2
-// let imgInterval = 3000
-// let premiumSliderInterval
-
-// window.addEventListener("load" , () => premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition)
-
-// function premiumSliderAuto(){
-//   imgPosition++
-//   premiumImg.forEach( ( eachImg , i ) => {
-//     eachImg.classList.remove("actualImg")
-//   })
-//   premiumImg[imgPosition].classList.add("actualImg")
-//   premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
-//   if( imgPosition >= premiumImg.length - 3){
-//     setTimeout( () => {
-//       premiumSlider.style.scrollBehavior = 'auto'
-//       imgPosition = 2
-//       premiumSlider.scrollLeft = premiumImg[0].clientWidth * imgPosition
-//       setTimeout( () => {
-//         premiumSlider.style.scrollBehavior = 'smooth'
-//       } , 0)
-//     } , 500)
-//   }
-// }
-// function startPremiumSlider(){
-//   stopPremiumSlider()
-//   premiumSliderInterval = setInterval(premiumSliderAuto , imgInterval)
-// }
-// function stopPremiumSlider(){
-//   clearInterval(premiumSliderInterval)
-// }
-// premiumSlider.addEventListener("touchstart" , stopPremiumSlider)
-// premiumSlider.addEventListener("touchend" , startPremiumSlider)
-// startPremiumSlider()
+premiumSlider.addEventListener("touchstart" , stopPremiumSlider)
+premiumSlider.addEventListener("touchend" , startPremiumSlider)
+startPremiumSlider()
 
 const animationAmount = document.querySelectorAll(".amount__animation")
 const spanAmount = document.querySelectorAll(".amount__span")
