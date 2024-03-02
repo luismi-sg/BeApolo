@@ -2136,8 +2136,11 @@ textarea.contact__input {
     .premium__img.onlyMobile{
         display: block;
     }
+    .premium__img{
+        transform: scale(0.96);
+    }
     .premium__img.actualImg{
-        transform: scale(1.04);
+        transform: scale(1);
         transition: all .5s ease;
     }
     .premium__text{
