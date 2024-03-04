@@ -210,7 +210,6 @@ technologyCard.forEach( function( eachCard , i ) {
 
 const technologySliderMobile = document.querySelector(".technology__slider.slider__mobile")
 const techItemsMobile = document.querySelectorAll(".technology__item.slider__mobile")
-console.log(techItemsMobile)
 const technologyCardWidth = technologySliderMobile.querySelectorAll("article")[0].clientWidth
 const technologyPointers = document.querySelectorAll(".technology__pointer")
 let techMobilePosition = 2
@@ -327,7 +326,6 @@ accordionCerrar.forEach( function (eachCerrar , index){
 
 const premiumSlider = document.querySelector(".premium__slider")
 const premiumImg = document.querySelectorAll(".premium__img")
-console.log(premiumImg)
 let imgPosition = 1
 let imgInterval = 3000
 let premiumSliderInterval

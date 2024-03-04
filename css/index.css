@@ -526,6 +526,9 @@ html {
     padding: 3rem;
     background-color: var(--bgColorGray);
 }
+.lap__connect.lapMobile{
+    display: none;
+}
 .connect__p,
 .connect__bold{
     color: var(--primaryColor);
@@ -534,7 +537,6 @@ html {
     position: relative;
 }
 .connect__p{
-    text-transform: uppercase;
     font-style: italic;
     font-weight: 500;
 }
@@ -945,7 +947,7 @@ html {
     overflow-x: hidden;
 }
 .premium__img{
-    width: 100%;
+    width: 280px;
     display: block;
     transition: all .5s ease;
 }
@@ -1602,7 +1604,6 @@ textarea.contact__input {
     }
     .premium__img{
         scroll-snap-align: center;
-        width: 100%;
     }
     .premium__img:hover{
         transform: scale(1);
@@ -2059,8 +2060,17 @@ textarea.contact__input {
     .title__span{
         font-size: 30px;
     }
+    .lap__connect{
+        display: none;
+    }
+    .lap__connect.lapMobile{
+        display: flex;
+    }
     .highlight__text::before{
-        height: 40px;
+        height: 20px;
+    }
+    .secondHighlight::before{
+        animation-delay: 4s;
     }
     .technology .h2{
         margin-bottom: 2rem;
@@ -2137,6 +2147,7 @@ textarea.contact__input {
         display: block;
     }
     .premium__img{
+        width: 100%;
         transform: scale(0.96);
         pointer-events: none;
     }
