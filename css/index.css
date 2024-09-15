@@ -531,6 +531,8 @@ html {
 }
 .connect__p,
 .connect__bold{
+    width: 50%;
+    text-align: center;
     color: var(--primaryColor);
     font-size: 1rem;
     line-height: 1.3em;
@@ -544,7 +546,7 @@ html {
     position: relative;
 }
 .connect__bold{
-    font-weight: 800;
+    font-weight: 600;
 }
 .highlight__text::before{
     content: '';
