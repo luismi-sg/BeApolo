@@ -133,132 +133,69 @@ let carouselInterval = setInterval(autoAnimation, interval);
 
 /* -------------------AQUI EMPIEZAN LOS CARRUSELES DE TECNOLOGIAS DESKTOP Y MOBILE --------------------------*/
 
-const technologyWrapDesktop = document.querySelector(".technology__slider.wrapper__desktop")
-const technologyItemDesktop = document.querySelectorAll(".technology__item")
-const technologyItemDesktopWidth = document.querySelectorAll(".technology__item")[0].clientWidth
-let animationTechPosition = 1
-let intervalTech = 3000
-let techDesktopInterval
-
-window.addEventListener("load" , () => {
-  technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth
-})
-
-function desktopTechAuto(){
-  animationTechPosition++
-  technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth * animationTechPosition
-  if( animationTechPosition >= (technologyItemDesktop.length / 2) - 3){
-    setTimeout(() => {
-      technologyWrapDesktop.style.scrollBehavior  = 'auto'
-      technologyWrapDesktop.scrollLeft = technologyItemDesktopWidth
-      animationTechPosition = 0
-    } , 0)}
-  technologyWrapDesktop.style.scrollBehavior  = 'smooth'
-}
-function startDesktopTechSlider(){
-  stopDesktopTechSlider()
-  techDesktopInterval = setInterval(desktopTechAuto, intervalTech);
-}
-function stopDesktopTechSlider(){
-  clearInterval(techDesktopInterval)
-}
-
-technologyWrapDesktop.addEventListener("mouseover" , stopDesktopTechSlider)
-technologyWrapDesktop.addEventListener("mousedown" , stopDesktopTechSlider)
-technologyWrapDesktop.addEventListener("mouseout" , startDesktopTechSlider)
-technologyWrapDesktop.addEventListener("mouseup" , startDesktopTechSlider)
-startDesktopTechSlider()
-
-
-
-
-let isDown = false;
-let startX;
-let scrollLeft;
-technologyWrapDesktop.addEventListener('mousedown', (e) => {
-  isDown = true;
-  startX = e.pageX - technologyWrapDesktop.offsetLeft; // Posición inicial del cursor
-  scrollLeft = technologyWrapDesktop.scrollLeft; // Posición inicial del desplazamiento
+var swiper2 = new Swiper(".mySwiper2", {
+  slidesPerView: "auto",
+  spaceBetween: 32,
+  centeredSlides: true,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  }
 });
 
-technologyWrapDesktop.addEventListener('mouseleave', () => {isDown = false;});
 
-technologyWrapDesktop.addEventListener('mouseup', () => {isDown = false;});
+/* -------------------AQUI EMPIEZA CARRUSEL DE TECNOLOGIAS MOBILE --------------------------*/
 
-technologyWrapDesktop.addEventListener('mousemove', (e) => {
-  if (!isDown) return; // Si no está presionado, no hacer nada
-  e.preventDefault(); // Previene cualquier selección de texto accidental
-  const x = e.pageX - technologyWrapDesktop.offsetLeft; // Posición actual del cursor
-  const walk = (x - startX) * 2; // Calcular el desplazamiento (*3 para aumentar la velocidad)
-  technologyWrapDesktop.scrollLeft = scrollLeft - walk;
+var swiper = new Swiper(".mySwiper", {
+  // on:{
+  //   click: function(swiper , event){
+  //     swiper.autoplay.running = false
+  //     console.log(swiper.autoplay.running)
+  //   }
+  // },
+  slidesPerView: "auto",
+  spaceBetween: 12,
+  centeredSlides: true,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    960: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    }},
 });
 
-const technologyCard = document.querySelectorAll(".technology__item.slider__mobile")
+const technologySliderMobile = document.querySelector(".swiper-wrapper")
+const techItemsMobile = document.querySelectorAll(".swiper-slide.isMobile")
 const technologyWrapper = document.querySelectorAll(".technology__wrapper")
 const triggerSlider = document.querySelectorAll(".trigger__slider")
 const openTrigger = document.querySelectorAll(".trigger__open")
 const closeTrigger = document.querySelectorAll(".trigger__close")
 
-technologyCard.forEach( function( eachCard , i ) {
+techItemsMobile.forEach( function( eachCard , i ) {
   triggerSlider[i].addEventListener("click" , function(){
-    technologyCard[i].classList.toggle("isOpen")
+    techItemsMobile[i].classList.toggle("isOpen")
     technologyWrapper[i].classList.toggle("isOpen")
     openTrigger[i].classList.toggle("iconTrigger")
     closeTrigger[i].classList.toggle("iconTrigger")
   })
 })
 
-const technologySliderMobile = document.querySelector(".technology__slider.slider__mobile")
-const techItemsMobile = document.querySelectorAll(".technology__item.slider__mobile")
-const technologyCardWidth = technologySliderMobile.querySelectorAll("article")[0].clientWidth
-const technologyPointers = document.querySelectorAll(".technology__pointer")
-let techMobilePosition = 2
-let techMobileTimer = 3000
-let techMobileInterval
 
-window.addEventListener("load" , () => technologySliderMobile.scrollLeft = technologyCardWidth * techMobilePosition)
-function techMobileAuto(){
-  techMobilePosition++
-  technologySliderMobile.scrollLeft = (technologyCardWidth + 32) * techMobilePosition
-  if(techMobilePosition >= techItemsMobile.length - 2){
-    setTimeout( () => {
-      technologySliderMobile.style.scrollBehavior = 'auto'
-      premiumSlider.scrollLeft = (technologyCardWidth + 32) * 2
-      techMobilePosition = 1
-    } , 0)}
-  technologySliderMobile.style.scrollBehavior = 'smooth'
-}
-function startTechMobile(){
-  stopTechMobile()
-  techMobileInterval = setInterval( techMobileAuto , techMobileTimer)
-}
-function stopTechMobile(){
-  clearInterval(techMobileInterval)
-}
-technologySliderMobile.addEventListener("touchstart" , stopTechMobile)
-technologySliderMobile.addEventListener("touchend" , startTechMobile)
-startTechMobile()
 
-technologyPointers.forEach( ( eachPointer , i ) => {
-  eachPointer.addEventListener("click" , () => {
-    techMobilePosition = i
-    technologySliderMobile.scrollLeft = (technologyCardWidth + 32 ) * i
-    technologyPointers.forEach( (item, i ) => {
-      i <= techMobilePosition ?
-      technologyPointers[i].classList.add("pointer__active") :
-      technologyPointers[i].classList.remove("pointer__active")
-    })
-  })
-})
-technologySliderMobile.addEventListener("scroll" , () => {
-  let calculo = Math.round(technologySliderMobile.scrollLeft / (technologyCardWidth + 32))
-  calculo >= 8 ? calculo = 0 : calculo
-  technologyPointers.forEach( ( eachPointer , i ) => {
-    i <= calculo ?
-      technologyPointers[i].classList.add("pointer__active") :
-      technologyPointers[i].classList.remove("pointer__active")
-  })
-})
+
 /* -------------------AQUI TERMINAN LOS CARRUSELES DE TECNOLOGIAS DESKTOP Y MOBILE --------------------------*/
 
 

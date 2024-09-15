@@ -1,22 +1,14 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_b_703_761)">
-<circle cx="20" cy="20" r="20" fill="white"/>
-<g filter="url(#filter1_b_703_761)">
-<path d="M19.1555 27.584V14.016H21.1715V27.584H19.1555ZM13.2035 21.76V19.872H27.1235V21.76H13.2035Z" fill="#959595"/>
-</g>
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_b_709_770)">
+<path d="M60 30C60 46.5685 46.5685 60 30 60C13.4315 60 0 46.5685 0 30C0 13.4315 13.4315 0 30 0C46.5685 0 60 13.4315 60 30Z" fill="white"/>
+<path d="M40.8796 31.6161H31.9516V40.3521H28.9277V31.6161H19.9996V28.7841H28.9277V20.0001H31.9516V28.7841H40.8796V31.6161Z" fill="#959595"/>
 </g>
 <defs>
-<filter id="filter0_b_703_761" x="-4" y="-4" width="48" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_b_709_770" x="-6" y="-6" width="72" height="72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_703_761"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_703_761" result="shape"/>
-</filter>
-<filter id="filter1_b_703_761" x="9.20361" y="10.0161" width="21.9199" height="21.5679" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_703_761"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_703_761" result="shape"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="3"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_709_770"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_709_770" result="shape"/>
 </filter>
 </defs>
 </svg>
