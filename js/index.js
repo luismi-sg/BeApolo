@@ -131,18 +131,18 @@ function autoAnimation(){
 }
 let carouselInterval = setInterval(autoAnimation, interval);
 
-/* -------------------AQUI EMPIEZAN LOS CARRUSELES DE TECNOLOGIAS DESKTOP Y MOBILE --------------------------*/
+// /* -------------------AQUI EMPIEZAN LOS CARRUSELES DE TECNOLOGIAS DESKTOP Y MOBILE --------------------------*/
 
-var swiper2 = new Swiper(".mySwiper2", {
-  slidesPerView: "auto",
-  spaceBetween: 32,
-  centeredSlides: true,
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: true,
-  }
-});
+// var swiper2 = new Swiper(".mySwiper2", {
+//   slidesPerView: "auto",
+//   spaceBetween: 32,
+//   centeredSlides: true,
+//   loop: true,
+//   autoplay: {
+//     delay: 3000,
+//     disableOnInteraction: true,
+//   }
+// });
 
 
 /* -------------------AQUI EMPIEZA CARRUSEL DE TECNOLOGIAS MOBILE --------------------------*/
@@ -260,6 +260,24 @@ accordionCerrar.forEach( function (eachCerrar , index){
     }
   })
 })
+
+
+const premiumData = document.querySelectorAll(".tabs__wrapper-engage")
+const premiumButton = document.querySelectorAll(".tabs__button")
+
+const premiumTabBackground = document.querySelector(".tabs__toggle-wrap")
+
+
+premiumButton.forEach( function ( eachButton , index ){
+  eachButton.addEventListener("click" , function (){
+    premiumData.forEach( function ( eachData , index ){
+      premiumData[index].classList.remove("isActive")
+    })
+    premiumTabBackground.style.backgroundImage = `url("/assets/tab-background-${index + 1}.png")`
+    premiumData[index].classList.add("isActive")
+  })
+})
+
 
 const premiumSlider = document.querySelector(".premium__slider")
 const premiumImg = document.querySelectorAll(".premium__img")
