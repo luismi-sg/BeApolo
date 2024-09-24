@@ -694,6 +694,12 @@ html {
     color: var(--primaryColor);
     border: 1px solid var(--primaryColor);
 }
+.content__button.desktop{
+    display: block;
+}
+.content__button.mobile{
+    display: none;
+}
 /* AQUI COMIENZA LA SECTION PUBLICITY*/
 .publicity{
     padding: 4rem 0;
@@ -909,19 +915,19 @@ html {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-}
-.tabs__toggle-wrap{
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
     height: 95px;
     background-image: url("/assets/tab-background-1.png");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--bgColorGray);
+}
+.tabs__toggle-wrap{
+    width: 80%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 }
 .tabs__button{
     padding: 1rem;
@@ -930,6 +936,11 @@ html {
     font-size: .75rem;
     font-weight: 700;
     cursor: none;
+    transition: all .5s ease;
+
+    &:hover{
+        font-size: .9rem;
+    }
 }
 
 .tabs__content{
@@ -945,7 +956,7 @@ html {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 2rem;
     
 }
@@ -955,7 +966,7 @@ html {
 }
 
 .tabs__text-wrap{
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -964,7 +975,7 @@ html {
     padding: 3rem;
 }
 .tabs__slider-wrap{
-    width: 60%;
+    width: 50%;
 }
 .tabs__text-p{
     width: 80%;
@@ -1818,7 +1829,7 @@ textarea.contact__input {
         display: none;
     }
     .technology__text-container{
-        display: none;
+        margin-top: 40px;
     }
     .swiper.mySwiper{
         display: block;
@@ -1830,6 +1841,7 @@ textarea.contact__input {
         height: 100% !important;
         display: flex;
         flex-flow: row nowrap;
+        justify-content: flex-start;
         align-items: flex-start;
         scroll-behavior: smooth;
         margin: 0 auto;
@@ -1846,7 +1858,16 @@ textarea.contact__input {
     }
     .swiper-slide.isOpen{
         overflow-y: visible;
-        height: 584px;
+        height: 496px;
+    }
+    .swiper-pagination-bullet-active-next,
+    .swiper-pagination-bullet-active-prev{
+        transform: scale(0) !important;
+    }
+    .swiper-pagination-bullet-active-next-next,
+    .swiper-pagination-bullet-active-prev-prev{
+        display: none;
+        transform: scale(0) !important;
     }
     .swiper-slide .bg__one{
     background-image: url("/assets/bg_item_technology1.webp");  
@@ -1866,11 +1887,11 @@ textarea.contact__input {
         box-shadow: 0px 5px 5px #2E2D2C33;
     }
     .technology__wrapper{
-        height: 200px;
+        height: 240px;
         transition: all 1s ease;
     }
     .technology__wrapper.isOpen{
-        height: 200px;
+        height: 240px;
         margin-bottom: -40px;
     }
     .technology__card.slider__mobile{
@@ -1996,6 +2017,7 @@ textarea.contact__input {
     .tabs__wrapper-engage{
         width: 100%;
         padding: 2rem 0;
+        gap: 1rem;
     }
     
     .premium h2{
@@ -2284,14 +2306,17 @@ textarea.contact__input {
     .context__title{
         font-size: 28px;
     }
+    .tabs__text-wrap{
+        padding: 0 1rem;
+    }
+    .tabs__wrapper-engage{
+        gap: 0rem;
+    }
     .tabs__wrapper-engage:nth-child(2){
         flex-flow: column-reverse nowrap;
     }
-    .tabs__text-wrap{
-        padding: 1rem;
-    }
     .premium__slider{
-        padding: 2.5rem;
+        padding: 1rem 2.5rem;
         justify-content: flex-start;
 
         overflow-x: scroll;
@@ -2311,6 +2336,12 @@ textarea.contact__input {
     .premium__img.actualImg{
         transform: scale(1);
         transition: all .5s ease;
+    }
+    .content__button.mobile{
+        display: block;
+    }
+    .content__button.desktop{
+        display: none;
     }
     .premium__text{
         padding: 0 1rem;

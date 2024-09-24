@@ -165,6 +165,8 @@ var swiper = new Swiper(".mySwiper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets  : 3,
   },
   breakpoints: {
     640: {
@@ -172,7 +174,7 @@ var swiper = new Swiper(".mySwiper", {
       spaceBetween: 20,
     },
     960: {
-      slidesPerView: 3,
+      slidesPerView: 5,
       spaceBetween: 40,
     }},
 });
@@ -265,7 +267,7 @@ accordionCerrar.forEach( function (eachCerrar , index){
 const premiumData = document.querySelectorAll(".tabs__wrapper-engage")
 const premiumButton = document.querySelectorAll(".tabs__button")
 
-const premiumTabBackground = document.querySelector(".tabs__toggle-wrap")
+const premiumTabBackground = document.querySelector(".tabs__toggle")
 
 
 premiumButton.forEach( function ( eachButton , index ){
