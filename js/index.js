@@ -169,6 +169,10 @@ var swiper = new Swiper(".mySwiper", {
     dynamicMainBullets  : 3,
   },
   breakpoints: {
+    480: {
+      slidesPerView: "auto",
+      spaceBetween: 12,
+    },
     640: {
       slidesPerView: 2,
       spaceBetween: 20,

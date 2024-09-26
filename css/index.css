@@ -923,7 +923,7 @@ html {
     background-color: var(--bgColorGray);
 }
 .tabs__toggle-wrap{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -951,7 +951,7 @@ html {
     transition: all .5s ease;
 }
 .tabs__wrapper-engage{
-    width: 80%;
+    width: 100%;
     display: none;
     flex-flow: row nowrap;
     justify-content: center;
@@ -978,7 +978,7 @@ html {
     width: 50%;
 }
 .tabs__text-p{
-    width: 80%;
+    width: 60%;
     font-size: 16px;
     line-height: 1.2em;
     color: var(--primaryColor);
@@ -2142,6 +2142,19 @@ textarea.contact__input {
     .pointer__audience{
         width: 140px;
     }
+    .swiper-slide{
+        max-width: 85%;
+        aspect-ratio: 4 / 3;
+    }
+    .technology__wrapper{
+        height: 256px;
+    }
+    .technology__wrapper.isOpen{
+        height: 256px;
+    }
+    .technology__card{
+        width: 100%;
+    }
 }
 @media screen and (max-width:480px){
     .header{
@@ -2312,11 +2325,14 @@ textarea.contact__input {
     .tabs__wrapper-engage{
         gap: 0rem;
     }
+    .tabs__text-p{
+        width: 90%;
+    }
     .tabs__wrapper-engage:nth-child(2){
         flex-flow: column-reverse nowrap;
     }
     .premium__slider{
-        padding: 1rem 2.5rem;
+        padding: 2rem 2.5rem;
         justify-content: flex-start;
 
         overflow-x: scroll;
@@ -2368,6 +2384,7 @@ textarea.contact__input {
     }
     .icons__img{
         object-fit: none;
+        height: 40px;
     }
     .contact__p{
         font-size: 16px;
