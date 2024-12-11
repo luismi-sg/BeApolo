@@ -102,11 +102,11 @@ botonesLi.forEach( function ( eachBotonLi , index ){
 })
 
 const toUpButton = document.querySelector(".toupbutton")
-const publicityContainerHeight = document.querySelector(".publicity").offsetTop
+const technologyContainerHeight = document.querySelector(".technology").offsetTop
 
 const buttonTopaction = () => {
   const positionButton = window.visualViewport.pageTop
-  publicityContainerHeight < positionButton  ? toUpButton.classList.add("upIsActive") : toUpButton.classList.remove("upIsActive")
+  technologyContainerHeight < positionButton  ? toUpButton.classList.add("upIsActive") : toUpButton.classList.remove("upIsActive")
 }
 
 window.addEventListener("scroll" , buttonTopaction )
